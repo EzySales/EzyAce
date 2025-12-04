@@ -20,6 +20,12 @@ ul{margin:10px 0 0 20px;color:var(--muted)}
 footer{text-align:center;padding:20px;color:var(--muted);margin-top:40px;font-size:14px}
 </style>
 </head>
+  <body>
+<script>
+  if (sessionStorage.getItem("ezyLogin") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 <body>
 <header>
   <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
