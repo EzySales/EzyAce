@@ -21,10 +21,6 @@ nav a:hover{color:var(--primary)}
 </style>
 </head>
 <body>
-<script>
-  if (sessionStorage.getItem("ezyLogin") !== "true") { window.location.href = "login.html"; }
-</script>
-
 <header>
   <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
   <nav>
@@ -49,7 +45,8 @@ const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQdJLPVCESvheB
 
 async function loadCSV(url){ const res = await fetch(url); const txt = await res.text(); return txt; }
 function csvToArray(text){
-  const lines = text.trim().split(/?
+  const lines = text.trim().split(/
+?
 /).filter(l=>l.trim()!=="");
   if(lines.length===0) return {headers:[],rows:[]};
   const headers = lines[0].split(',').map(h=>h.trim().replace(/^"|"$/g,''));
