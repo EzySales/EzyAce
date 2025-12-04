@@ -38,6 +38,13 @@
   </style>
 </head>
 <body>
+  
+  <script>
+  if (localStorage.getItem("entered") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
   <header>
     <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
     <nav>
