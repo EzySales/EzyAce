@@ -1,111 +1,159 @@
-<!-- Professional & Modern Multi‑Page Version (Home Page) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EzySales Academy — Professional Training Platform</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>EzySales Academy — Onboarding Hub</title>
+  <meta name="description" content="EzySales Academy - simple training hub for your real estate team" />
   <style>
-    :root {
-      --primary:#2563eb;
-      --secondary:#0ea5e9;
-      --text:#0f172a;
-      --muted:#64748b;
-      --bg:#f8fafc;
-      --card:#ffffff;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter, sans-serif;background:var(--bg);color:var(--text)}
-    header{background:white;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-    nav a{margin-left:20px;text-decoration:none;font-weight:600;color:var(--text)}
-    nav a:hover{color:var(--primary)}
-    .hero{padding:80px 32px;text-align:center;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white}
-    .hero h1{font-size:42px;font-weight:700;margin-bottom:12px}
-    .hero p{font-size:18px;color:#e2e8f0;margin-bottom:32px}
-    .hero a{background:white;color:var(--primary);padding:12px 28px;border-radius:10px;font-weight:700;text-decoration:none;font-size:16px}
-    .hero a:hover{opacity:.8}
-    .section{padding:48px 32px;max-width:1080px;margin:auto}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
-    .card{background:var(--card);padding:28px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-    .card h3{font-size:20px;margin-bottom:12px}
-    .card p{color:var(--muted);font-size:14px;margin-bottom:14px}
-    .card a{text-decoration:none;color:var(--primary);font-weight:600;font-size:14px}
-    footer{padding:20px;text-align:center;color:var(--muted);font-size:14px;margin-top:40px}
-    @media(max-width:800px){.grid{grid-template-columns:1fr}}
+    :root{--accent:#0f172a;--muted:#6b7280;--card:#ffffff;--bg:#f7f9fb}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:var(--accent)}
+    .container{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#2563eb,#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+    a.btn{background:white;border:1px solid #e6e9ef;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600}
+    section.card{background:var(--card);border-radius:12px;padding:18px;margin:12px 0;box-shadow:0 4px 12px rgba(15,23,42,0.06)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .list{padding:0;margin:0;list-style:none}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+    .target{display:flex;gap:8px;align-items:center}
+    .pill{background:#eef2ff;color:#3730a3;padding:6px 8px;border-radius:999px;font-weight:600}
+    .code{background:#0b1220;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto;font-family:monospace;font-size:13px}
   </style>
 </head>
 <body>
-  <body>
-<script>
-  if (sessionStorage.getItem("ezyLogin") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
-  <header>
-    <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
+  <div class="container">
+    <header>
+      <div class="logo">EA</div>
+      <div>
+        <h1>EzySales Academy</h1>
+        <p class="lead">Simple & clean learning hub for your REN downline — onboarding, templates, scripts and weekly tasks.</p>
+      </div>
+    </header>
+
     <nav>
-      <a href="onboarding.html">Onboarding</a>
-      <a href="training.html">Videos</a>
-      <a href="templates.html">Templates</a>
-      <a href="projects.html">Projects</a>
-      <a href="weekly.html">Coaching</a>
-      <a href="admin.html">Admin</a>
+      <a class="btn" href="#onboard">Onboarding</a>
+      <a class="btn" href="#videos">Training Videos</a>
+      <a class="btn" href="#templates">Templates</a>
+      <a class="btn" href="#projects">Project Library</a>
+      <a class="btn" href="#weekly">Weekly Tasks</a>
+      <a class="btn" href="#admin">Admin</a>
     </nav>
-  </header>
 
-  <section class="hero">
-    <h1>Grow Your Sales Team Faster & Smarter</h1>
-    <p>The complete modern training hub for new RENs under EzySales Academy — simple, structured, and powerful.</p>
-    <a href="onboarding.html">Start Onboarding →</a>
-  </section>
+    <section id="onboard" class="card">
+      <h2>7‑Day Onboarding (Quick Start)</h2>
+      <p class="small">Give new agents this checklist and ask them to complete within first 7 days.</p>
+      <ol class="list">
+        <li><strong>Day 1 — Intro:</strong> REN roles, commission, core documents (SPA, LOA).</li>
+        <li><strong>Day 2 — Tools:</strong> WhatsApp Business, Canva kit, folder structure.</li>
+        <li><strong>Day 3 — Listing:</strong> Photo guide, caption templates, where to post.</li>
+        <li><strong>Day 4 — Prospecting:</strong> Lead sources, reply vs convert scripts.</li>
+        <li><strong>Day 5 — Viewing:</strong> Safe viewing checklist, script, objection handling.</li>
+        <li><strong>Day 6 — Closing:</strong> Booking flow, deposit, loan basics.</li>
+        <li><strong>Day 7 — Targets:</strong> Weekly KPI setup and personal action plan.</li>
+      </ol>
+      <p class="small">Tip: Ask each new agent to record 3 short video roleplay clips and upload to the "Training Videos" section.</p>
+    </section>
 
-  <section class="section">
-    <h2 style="font-size:28px;font-weight:700">Your Training Modules</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>📘 Onboarding</h3>
-        <p>Step‑by‑step 7‑day path for every new REN to follow.</p>
-        <a href="onboarding.html">Open →</a>
+    <section id="videos" class="card">
+      <h2>Training Videos</h2>
+      <p class="small">Add short 2–4 minute videos here. Replace the <em>placeholder</em> embeds with your recorded MP4 links (host on Google Drive, YouTube private, or Netlify assets).</p>
+      <div class="grid">
+        <div>
+          <h3>How to post a listing</h3>
+          <div class="code">[VIDEO EMBED: replace with &lt;video src="/assets/post-listing.mp4" controls&gt;]</div>
+        </div>
+        <div>
+          <h3>Replying to leads (WhatsApp)</h3>
+          <div class="code">[VIDEO EMBED: replace with &lt;video src="/assets/reply-leads.mp4" controls&gt;]</div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>🎥 Training Videos</h3>
-        <p>Listing, Leads, Viewing, Closing — short & powerful lessons.</p>
-        <a href="training.html">Open →</a>
+    <section id="templates" class="card">
+      <h2>Templates & Scripts</h2>
+      <p class="small">Copy these into WhatsApp or Google Docs. Keep them short and repeatable.</p>
+      <div class="grid">
+        <div>
+          <h3>WhatsApp Quick Reply</h3>
+          <pre class="code">Hi {{name}}, thanks for enquiring about {{prop}}. Is this for viewing or more info? When is good for you? - {{agent}}</pre>
+        </div>
+        <div>
+          <h3>Viewing Script (Top lines)</h3>
+          <pre class="code">1) Greet & confirm needs
+2) Highlight top 3 selling points
+3) Ask budget & timeline
+4) Close for next step (booking)</pre>
+        </div>
       </div>
+      <p class="small">Downloadable files (replace these links with actual files after you upload to /assets):</p>
+      <ul>
+        <li><a href="#">Onboarding-Checklist.pdf (placeholder)</a></li>
+        <li><a href="#">Caption-Templates.docx (placeholder)</a></li>
+      </ul>
+    </section>
 
-      <div class="card">
-        <h3>📝 Templates</h3>
-        <p>WhatsApp scripts, captions, follow‑up, objection handling.</p>
-        <a href="templates.html">Open →</a>
+    <section id="projects" class="card">
+      <h2>Project Library</h2>
+      <p class="small">Create one card per project. Each card should include: key selling points, price range, floorplans, nearby amenities, and 3 hero photos.</p>
+      <div class="grid">
+        <div>
+          <h3>Mori Residence 3</h3>
+          <p class="small">Example: 3–4 bedrooms, RM350K–RM450K, 2 bathrooms, 2–3 car parks — Seller pitch & top features here.</p>
+        </div>
+        <div>
+          <h3>Example Project 2</h3>
+          <p class="small">Add more projects here.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>🏢 Projects</h3>
-        <p>Mori Residence 3 and more project cheat sheets.</p>
-        <a href="projects.html">Open →</a>
+    <section id="weekly" class="card">
+      <h2>Weekly Coaching & KPI</h2>
+      <p class="small">Follow this rhythm for 4–6 weeks with new agents.</p>
+      <ul>
+        <li>Weekly team 30-min: market update + 1 short training</li>
+        <li>One‑to‑one 15-min for first 60 days</li>
+        <li>Daily WhatsApp tips and templates</li>
+      </ul>
+      <div class="target">
+        <div class="pill">KPI</div>
+        <div class="small">Listings: 2 / Leads: 15 / Viewings: 6 / Closings: 1</div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>📅 Weekly Coaching</h3>
-        <p>KPIs, weekly rhythm, and progression roadmap.</p>
-        <a href="weekly.html">Open →</a>
-      </div>
+    <section id="admin" class="card">
+      <h2>Admin & Deployment (Netlify)</h2>
+      <p class="small">This site is a single-file static site ready to deploy to Netlify. You can edit the content directly in code or replace video/file links after uploading assets.</p>
+      <h3>Quick Deploy Steps</h3>
+      <ol>
+        <li>Create a new GitHub repo and push this index.html file.</li>
+        <li>Sign in to Netlify, "New site from Git", connect the repo and deploy. Netlify will publish a URL.</li>
+        <li>To update: edit index.html and push to Git; Netlify auto-deploys.</li>
+      </ol>
+      <h3>If you prefer direct upload to Netlify (ZIP)</h3>
+      <p class="small">Zip the site files and drag to Netlify "Sites" &gt; "Add new site" &gt; "Deploy manually".</p>
+      <h3>Admin Tips</h3>
+      <ul>
+        <li>Store heavy videos on YouTube (unlisted) or Google Drive and paste/embed links here to keep site light.</li>
+        <li>Replace placeholder download links with files hosted in a public folder on the same repo or a shared drive.
+        </li>
+      </ul>
+      <h3>Files included</h3>
+      <pre class="code">/index.html
+/assets/ (upload your videos & PDFs here)
+README-deploy.txt</pre>
+    </section>
 
-      <div class="card">
-        <h3>⚙️ Admin</h3>
-        <p>Deployment guide, file management, version updates.</p>
-        <a href="admin.html">Open →</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © EzySales Academy — Professional Training Platform
-  </footer>
+    <footer>
+      Built for <strong>EzySales Academy</strong>. Need more pages, custom branding, or I can convert this into a Notion hub—tell me which. 
+    </footer>
+  </div>
 </body>
 </html>
-

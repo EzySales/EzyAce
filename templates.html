@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Templates — EzySales Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {--primary:#2563eb;--secondary:#0ea5e9;--text:#0f172a;--muted:#64748b;--bg:#f8fafc;--card:#ffffff;}
+body{font-family:Inter;background:var(--bg);color:var(--text);margin:0}
+header{background:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+nav a{margin-left:20px;font-weight:600;text-decoration:none;color:var(--text)}
+nav a:hover{color:var(--primary)}
+.section{max-width:1000px;margin:40px auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+h1{font-size:32px;font-weight:700;margin-bottom:10px}
+p.lead{color:var(--muted);margin-bottom:30px;font-size:16px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:10px;font-size:14px;overflow-x:auto}
+</style>
+</head>
+<body>
+<script>
+  if (sessionStorage.getItem("ezyLogin") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<header>
+  <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="onboarding.html">Onboarding</a>
+    <a href="training.html">Videos</a>
+    <a href="projects.html">Projects</a>
+    <a href="weekly.html">Coaching</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</header>
+
+<section class="section">
+  <h1>Templates & Scripts</h1>
+  <p class="lead">Copy & paste ready-made templates for messaging, captions, and follow-up.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>💬 WhatsApp Quick Reply</h3>
+      <pre>Hi {{name}}, thanks for your enquiry regarding {{property}}.
+May I know if you're looking for more info or to schedule a viewing? 😊
+
+I can assist you right away.</pre>
+    </div>
+
+    <div class="card">
+      <h3>📸 Listing Caption Template</h3>
+      <pre>{{PROPERTY NAME}}
+📍 Location: {{Area}}
+💰 Price: RM {{Price}}
+🏠 Bedrooms: {{X}} | 🚿 Bathrooms: {{Y}}
+🚗 Parking: {{Z}}
+
+✨ Key Features:
+- Point A
+- Point B
+- Point C
+
+Interested? PM me for viewing! 😊</pre>
+    </div>
+
+    <div class="card">
+      <h3>🔁 Follow Up Script</h3>
+      <pre>Hi {{name}}, just checking in — would you like to proceed with viewing for {{property}}?
+I can arrange according to your availability. 😊</pre>
+    </div>
+
+    <div class="card">
+      <h3>📝 Objection Handling</h3>
+      <pre>Client: "I want to think first."
+Agent: "No problem! May I know which part you want to consider? Price, loan, or the unit itself? I can help clarify.”</pre>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
