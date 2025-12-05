@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Week 1 — EzySales Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Inter, sans-serif;
+        background: radial-gradient(circle at 20% 30%, #0077ff33, #000814 70%);
+        color: #fff;
+        min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 18px 28px;
+        align-items: center;
+    }
+
+    .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-weight: 700;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg,#00aaff,#0066ff);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+    }
+
+    .logout {
+        background: rgba(255,255,255,0.1);
+        padding: 8px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        border: 1px solid rgba(255,255,255,0.15);
+        backdrop-filter: blur(6px);
+    }
+
+    /* HERO */
+    .hero {
+        max-width: 800px;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.06);
+        padding: 35px;
+        text-align: center;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.15);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+
+    .hero h1 {
+        margin-bottom: 10px;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .hero p {
+        opacity: 0.8;
+    }
+
+    /* ROADMAP */
+    .roadmap {
+        max-width: 700px;
+        margin: 40px auto;
+        position: relative;
+        padding-left: 25px;
+    }
+
+    .roadmap::before {
+        content: "";
+        position: absolute;
+        left: 12px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(#00aaff, #004b99);
+        border-radius: 10px;
+    }
+
+    .step {
+        margin-bottom: 35px;
+        padding: 22px 20px;
+        background: rgba(255,255,255,0.06);
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    .step::before {
+        content: "";
+        position: absolute;
+        left: -3px;
+        top: 18px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #00c8ff;
+        border: 3px solid #003b66;
+    }
+
+    .step h3 {
+        margin: 0 0 6px 0;
+        font-size: 20px;
+        color: #00c8ff;
+    }
+
+    .step p {
+        margin: 0;
+        opacity: 0.85;
+        line-height: 1.5;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        opacity: 0.5;
+        padding-bottom: 40px;
+        font-size: 13px;
+    }
+</style>
+
+<script>
+    // LOGIN LOCK
+    if (sessionStorage.getItem("ezyLogin") !== "true") {
+        window.location.href = "login.html";
+    }
+
+    function signOut() {
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    }
+</script>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="nav">
+    <div class="brand">
+        <div class="logo">EA</div>
+        EzySales Academy
+    </div>
+    <a class="logout" onclick="signOut()">Sign out</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Week 1 — Foundations</h1>
+    <p>Set up your tools, identity, and online presence. This week prepares you to start FAST.</p>
+</section>
+
+<!-- WEEK ROADMAP -->
+<div class="roadmap">
+
+    <div class="step">
+        <h3>✔ Get your Business Number</h3>
+        <p>Professional identity is the first step. Clients trust RENs who look official.</p>
+    </div>
+
+    <div class="step">
+        <h3>✔ Install WhatsApp Business</h3>
+        <p>Set up quick replies, labels, catalog, profile photo, and working hours.</p>
+    </div>
+
+    <div class="step">
+        <h3>✔ Prepare Your Social Media</h3>
+        <p>Facebook, TikTok, Instagram — clean up your profile and make it buyer-friendly.</p>
+    </div>
+
+    <div class="step">
+        <h3>✔ Get a Professional Photo (AI Headshot)</h3>
+        <p>Your branding starts with your face. Use AI headshot generator for polished looks.</p>
+    </div>
+
+    <div class="step">
+        <h3>✔ Create a Google Form</h3>
+        <p>Use this to collect buyer info: budget, area, loan status, requirements.</p>
+    </div>
+
+    <div class="step">
+        <h3>✔ E-Pitch on Social Media</h3>
+        <p>Announce yourself as a REN professionally to attract your first warm leads.</p>
+    </div>
+
+</div>
+
+<footer>
+    © EzySales Academy — Week 1 Program
+</footer>
+
+</body>
+</html>
