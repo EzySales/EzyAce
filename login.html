@@ -4,107 +4,226 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Login — EzySales Academy</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-body{
-  margin:0;
-  padding:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Inter, sans-serif;
-  background:linear-gradient(180deg,#e8f1ff,#bfd8ff,#9ac5ff);
-}
+  :root{
+    --bg-1:#05060a;      /* deep near-black */
+    --glass:#0f1724cc;   /* card base */
+    --accent1:#ff3cac;   /* pink */
+    --accent2:#7b61ff;   /* purple */
+    --accent3:#2bd7ff;   /* cyan */
+    --muted:#9aa6b2;
+    --white: #e6eef7;
+    --radius:18px;
+  }
 
-.card{
-  width:340px;
-  padding:26px;
-  border-radius:16px;
-  background:rgba(255,255,255,0.45);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.3);
-  box-shadow:0 10px 30px rgba(0,0,0,0.20);
-  text-align:center;
-}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    background:linear-gradient(180deg,var(--bg-1) 0%, #08101a 60%);
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px;
+  }
 
-.card h2{
-  margin-bottom:5px;
-  font-size:24px;
-  font-weight:700;
-  color:#0f172a;
-}
+  /* neon blobs behind */
+  .bg-blobs{
+    position:fixed;
+    inset:0;
+    z-index:-20;
+    pointer-events:none;
+    background:
+      radial-gradient(600px 300px at 85% 10%, rgba(123,97,255,0.22), transparent 20%),
+      radial-gradient(480px 260px at 12% 20%, rgba(255,60,172,0.18), transparent 16%),
+      radial-gradient(420px 220px at 70% 80%, rgba(43,215,255,0.12), transparent 12%);
+    filter: blur(36px) saturate(120%);
+    mix-blend-mode: screen;
+  }
 
-.card p{
-  margin-bottom:20px;
-  font-size:14px;
-  color:#475569;
-}
+  /* subtle vignette */
+  .bg-vignette{
+    position:fixed;inset:0;z-index:-10;pointer-events:none;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.45) 100%);
+  }
 
-input{
-  width:100%;
-  padding:12px;
-  margin-bottom:14px;
-  border-radius:10px;
-  border:1px solid #cbd5e1;
-  font-size:15px;
-}
+  /* container */
+  .wrap{
+    width:420px;
+    max-width:94vw;
+    text-align:left;
+  }
 
-button{
-  width:100%;
-  padding:12px;
-  background:#2563eb;
-  border:none;
-  border-radius:10px;
-  color:white;
-  font-weight:700;
-  font-size:16px;
-  cursor:pointer;
-}
+  .card{
+    border-radius:var(--radius);
+    padding:28px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border:1px solid rgba(255,255,255,0.06);
+    box-shadow:
+      0 6px 30px rgba(2,6,23,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    position:relative;
+    overflow:hidden;
+  }
 
-button:hover{
-  opacity:0.9;
-}
+  /* accent rim */
+  .card::before{
+    content:'';
+    position:absolute;left:-60px;top:-60px;width:240px;height:240px;
+    background:linear-gradient(135deg,var(--accent1),var(--accent2));
+    filter:blur(40px);
+    opacity:0.55;
+    transform:rotate(18deg);
+    pointer-events:none;
+  }
 
-#error{
-  color:#dc2626;
-  font-size:14px;
-  margin-top:10px;
-  display:none;
-}
+  .brand{
+    display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  }
+  .logo{
+    width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent1));
+    display:flex;align-items:center;justify-content:center;font-weight:700;color:white;box-shadow:0 8px 24px rgba(123,97,255,0.18);
+  }
+  .brand h3{margin:0;font-size:16px}
+  .brand p{margin:0;color:var(--muted);font-size:13px}
+
+  h2{font-size:22px;margin:6px 0 4px 0;color:var(--white)}
+  .lead{color:var(--muted);font-size:13px;margin-bottom:18px}
+
+  input{
+    width:100%;
+    padding:12px 14px;
+    margin-bottom:12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.06);
+    background: rgba(8,12,18,0.35);
+    color:var(--white);
+    font-size:15px;
+    outline:none;
+    transition:box-shadow .15s, border-color .12s;
+  }
+  input:focus{
+    box-shadow:0 6px 18px rgba(43,215,255,0.08);
+    border-color: rgba(43,215,255,0.28);
+  }
+
+  .actions{display:flex;gap:12px;align-items:center;margin-top:6px}
+  button{
+    padding:12px 16px;border-radius:10px;border:none;font-weight:700;font-size:15px;
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:white;cursor:pointer;box-shadow: 0 8px 24px rgba(37,99,235,0.14);
+  }
+  .btn-ghost{
+    padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);
+    background:transparent;color:var(--muted);cursor:pointer;font-weight:600;
+  }
+
+  #error{
+    margin-top:12px;color:#ff6b6b;background:rgba(255,107,107,0.06);padding:8px;border-radius:8px;font-size:13px;display:none;
+  }
+
+  .help{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+
+  /* small screens */
+  @media(max-width:480px){
+    .card{padding:18px}
+    .brand h3{font-size:15px}
+  }
 </style>
 </head>
-
 <body>
 
-<div class="card">
-  <h2>EzySales Login</h2>
-  <p>Authorized members only</p>
+  <!-- visuals -->
+  <div class="bg-blobs" aria-hidden="true"></div>
+  <div class="bg-vignette" aria-hidden="true"></div>
 
-  <input id="user" type="text" placeholder="Username" />
-  <input id="pass" type="password" placeholder="Password" />
+  <div class="wrap" role="main" aria-label="EzySales login">
+    <div class="card" role="form" aria-labelledby="login-title">
+      <div class="brand">
+        <div class="logo" aria-hidden>EA</div>
+        <div>
+          <h3>EzySales Academy</h3>
+          <p>Team access — private training</p>
+        </div>
+      </div>
 
-  <button onclick="login()">Login</button>
+      <h2 id="login-title">Team Login</h2>
+      <div class="lead">Enter your credentials to access the training platform.</div>
 
-  <div id="error">Incorrect username or password.</div>
-</div>
+      <input id="username" type="text" placeholder="Username" autocomplete="username" aria-label="Username">
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+
+      <div class="actions">
+        <button id="btnLogin">Sign in</button>
+        <button class="btn-ghost" id="btnDemo" title="Auto-fill demo credentials">Demo</button>
+      </div>
+
+      <div id="error" role="alert">Incorrect username or password.</div>
+
+      <div class="help">Contact your team leader if you don't have credentials.</div>
+    </div>
+  </div>
 
 <script>
-function login(){
-
-  const u = document.getElementById("user").value.trim();
-  const p = document.getElementById("pass").value.trim();
-
-  if(u === "ezy2025" && p === "imgreat"){
-    sessionStorage.setItem("ezyLogin","true");
+  // if already logged in — go straight to index
+  if (sessionStorage.getItem("ezyLogin") === "true") {
     window.location.href = "index.html";
-  } else {
-    document.getElementById("error").style.display = "block";
   }
-}
+
+  // credentials (set by you)
+  const VALID_USER = "ezy2025";
+  const VALID_PASS = "imgreat";
+
+  const user = document.getElementById("username");
+  const pass = document.getElementById("password");
+  const btn = document.getElementById("btnLogin");
+  const err = document.getElementById("error");
+  const demo = document.getElementById("btnDemo");
+
+  // demo autofill
+  demo.addEventListener("click", () => {
+    user.value = VALID_USER;
+    pass.value = VALID_PASS;
+    user.focus();
+  });
+
+  // allow enter key
+  [user, pass].forEach(el=>{
+    el.addEventListener("keydown", (e)=>{
+      if(e.key === "Enter") btn.click();
+    });
+  });
+
+  btn.addEventListener("click", ()=>{
+    err.style.display = "none";
+    const u = user.value.trim();
+    const p = pass.value.trim();
+
+    if(u === VALID_USER && p === VALID_PASS){
+      // set session and redirect
+      sessionStorage.setItem("ezyLogin","true");
+      // small success pulse + redirect
+      btn.disabled = true;
+      btn.style.opacity = "0.9";
+      setTimeout(()=> window.location.href = "index.html", 300);
+    } else {
+      err.style.display = "block";
+      // subtle shake
+      document.querySelector('.card').animate([
+        { transform: 'translateX(0)' },
+        { transform: 'translateX(-6px)' },
+        { transform: 'translateX(6px)' },
+        { transform: 'translateX(0)' }
+      ], { duration: 260 });
+    }
+  });
 </script>
 
 </body>
