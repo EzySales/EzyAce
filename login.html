@@ -4,49 +4,108 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Login — EzySales Academy</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root {--primary:#2563eb;--secondary:#0ea5e9;--text:#0f172a;--muted:#64748b;--bg:#eff4ff;--card:#ffffff;}
-body{font-family:Inter;background:var(--bg);display:flex;justify-content:center;align-items:center;height:100vh;margin:0;color:var(--text)}
-.card{background:var(--card);width:360px;padding:32px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.1);text-align:center}
-.card h2{margin-bottom:8px;font-size:26px;font-weight:700;color:var(--primary)}
-.card p{margin-bottom:24px;color:var(--muted);font-size:14px}
-input{width:100%;padding:12px;margin:6px 0 14px 0;border:1px solid #cbd5e1;border-radius:10px;font-size:15px}
-button{width:100%;background:var(--primary);color:white;padding:12px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer}
-button:hover{opacity:.9}
+body{
+  margin:0;
+  padding:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Inter, sans-serif;
+  background:linear-gradient(180deg,#e8f1ff,#bfd8ff,#9ac5ff);
+}
+
+.card{
+  width:340px;
+  padding:26px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.3);
+  box-shadow:0 10px 30px rgba(0,0,0,0.20);
+  text-align:center;
+}
+
+.card h2{
+  margin-bottom:5px;
+  font-size:24px;
+  font-weight:700;
+  color:#0f172a;
+}
+
+.card p{
+  margin-bottom:20px;
+  font-size:14px;
+  color:#475569;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:14px;
+  border-radius:10px;
+  border:1px solid #cbd5e1;
+  font-size:15px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  background:#2563eb;
+  border:none;
+  border-radius:10px;
+  color:white;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
+#error{
+  color:#dc2626;
+  font-size:14px;
+  margin-top:10px;
+  display:none;
+}
 </style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h2>EzySales Academy</h2>
-    <p>Login to access your training platform</p>
+<div class="card">
+  <h2>EzySales Login</h2>
+  <p>Authorized members only</p>
 
-    <form id="loginForm">
-      <input id="loginID" type="text" placeholder="Login ID" required />
-      <input id="password" type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
+  <input id="user" type="text" placeholder="Username" />
+  <input id="pass" type="password" placeholder="Password" />
 
-    <p id="error" style="color:red; display:none;">Wrong ID or password.</p>
+  <button onclick="login()">Login</button>
 
-    <script>
-      document.getElementById("loginForm").addEventListener("submit", function(e){
-        e.preventDefault();
-        
-        const id = document.getElementById("loginID").value.trim();
-        const pw = document.getElementById("password").value.trim();
+  <div id="error">Incorrect username or password.</div>
+</div>
 
-        if(id === "ezy2025" && pw === "imgreat123"){
-          localStorage.setItem("entered", "true");
-          window.location.href = "index.html";
-        } else {
-          document.getElementById("error").style.display = "block";
-        }
-      });
-    </script>
+<script>
+function login(){
 
-  </div>
+  const u = document.getElementById("user").value.trim();
+  const p = document.getElementById("pass").value.trim();
+
+  if(u === "ezy2025" && p === "imgreat"){
+    sessionStorage.setItem("ezyLogin","true");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("error").style.display = "block";
+  }
+}
+</script>
 
 </body>
 </html>
