@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>EzySales Academy — Neo Glass (Homepage)</title>
+<title>EzySales Academy — Neo Glass</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -13,217 +13,244 @@
   --accent-1:#00c8ff;
   --accent-2:#007bff;
   --accent-3:#ffe761;
-  --glass-weak: rgba(255,255,255,0.04);
-  --glass-strong: rgba(255,255,255,0.08);
-  --card-radius:18px;
+  --glass:rgba(255,255,255,0.05);
+  --glass-border:rgba(255,255,255,0.08);
   --muted:#9fb2c9;
 }
 
+/* Reset */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI";
   background:var(--bg-dark);
-  color:#e6f0ff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  color:#e8f5ff;
   overflow-x:hidden;
 }
 
-/* ---------- PROTECTION: redirect to login if not authenticated ---------- */
+/* ---------- LOGIN PROTECTION ---------- */
 </style>
 </head>
 <body>
 <script>
-  // Protection guard: redirect to login if not logged in
   if (sessionStorage.getItem("ezyLogin") !== "true") {
     window.location.href = "login.html";
   }
 </script>
 
-<!-- BACKGROUND GLOW LAYERS -->
 <style>
-/* background container styles inserted here so it's inlined and overrides caches */
-.bg-layer{position:fixed;inset:0;z-index:-10;pointer-events:none}
-.bg-sky{
-  position:fixed;inset:0;background:linear-gradient(180deg,#071029 0%, #062034 30%, #031426 100%);
-  opacity:1;filter:saturate(1.08);
-}
-.blob{
-  position:fixed;border-radius:50%;filter:blur(120px);opacity:0.6;mix-blend-mode:screen;
-}
-.blob-a{width:680px;height:680px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));left:-240px;top:-180px}
-.blob-b{width:620px;height:620px;background:linear-gradient(135deg,var(--accent-2),#00f0ff);right:-200px;bottom:-180px}
-.blob-c{width:420px;height:420px;background:var(--accent-3);left:55%;top:30%;opacity:0.18;filter:blur(160px)}
-/* subtle digital noise overlay */
-.bg-noise{
-  position:fixed;inset:0;background:
-    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02), transparent 8%),
-    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.01), transparent 6%);
-  z-index:-8;opacity:0.4;mix-blend-mode:overlay;
-}
+/* ---------------- BACKGROUND GLOW ---------------- */
+.bg-wrap {position:fixed; inset:0; z-index:-10; pointer-events:none;}
+.blob {position:fixed; border-radius:50%; filter:blur(120px); opacity:0.6; mix-blend-mode:screen;}
+.blob-a {width:700px; height:700px; background:linear-gradient(135deg,#00c8ff,#007bff); left:-240px; top:-200px;}
+.blob-b {width:650px; height:650px; background:linear-gradient(135deg,#007bff,#00f0ff); right:-200px; bottom:-220px;}
+.blob-c {width:420px; height:420px; background:#ffe761; left:55%; top:35%; opacity:0.18; filter:blur(180px);}
 </style>
 
-<div class="bg-layer">
-  <div class="bg-sky" aria-hidden="true"></div>
-  <div class="blob blob-a" aria-hidden="true"></div>
-  <div class="blob blob-b" aria-hidden="true"></div>
-  <div class="blob blob-c" aria-hidden="true"></div>
-  <div class="bg-noise" aria-hidden="true"></div>
+<div class="bg-wrap">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
 </div>
 
-<!-- NAV -->
 <style>
-.nav{max-width:1200px;margin:18px auto;padding:0 22px;display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#02131d;box-shadow:0 8px 30px rgba(0,140,255,0.18)}
-.title{font-weight:700;font-size:18px;color:#eaf6ff}
-.subtitle{font-size:12px;color:var(--muted)}
-.nav-right{display:flex;gap:12px;align-items:center}
-.btn-ghost{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#cfe9ff;text-decoration:none;font-weight:700}
-.btn-primary{padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));border:none;color:#00141f;font-weight:800}
-</style>
-
-<header class="nav" role="banner">
-  <div class="brand">
-    <div class="logo" aria-hidden>EA</div>
-    <div>
-      <div class="title">EzySales Academy</div>
-      <div class="subtitle">Team training • Private access</div>
-    </div>
-  </div>
-
-  <div class="nav-right">
-    <a class="btn-ghost" href="login.html">Sign out</a>
-  </div>
-</header>
-
-<!-- HERO (Split with glass panel + floating orb) -->
-<style>
-.hero-wrap{max-width:1200px;margin:28px auto;padding:20px}
-.hero{
-  display:grid;grid-template-columns:1fr 360px;gap:28px;
+/* ---------------- NAV ---------------- */
+.nav{
+  max-width:1200px;
+  margin:20px auto;
+  padding:0 22px;
+  display:flex;
+  justify-content:space-between;
   align-items:center;
 }
-.glass-hero{
-  border-radius:20px;padding:34px;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(18px);box-shadow:0 18px 60px rgba(0,0,0,0.45);
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
-.hero h1{font-size:36px;color:#eef9ff;margin-bottom:8px}
-.hero p{color:var(--muted);margin-bottom:16px}
-.hero-cta{display:inline-block;padding:12px 20px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#00151a;font-weight:800;text-decoration:none}
-.hero-badge{
-  border-radius:14px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(0,0,0,0.4)
+.logo{
+  width:46px;height:46px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#00c8ff,#007bff);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;
+  color:#00202e;
+}
+.brand-title{font-weight:700;font-size:18px}
+.brand-sub{font-size:12px;color:var(--muted)}
+.btn-logout{
+  padding:10px 14px;
+  border-radius:10px;
+  color:#e8f5ff;
+  border:1px solid var(--glass-border);
+  text-decoration:none;
+  font-weight:700;
 }
 </style>
 
-<main class="hero-wrap" role="main">
-  <section class="hero hero-center">
-    <div class="glass-hero hero-center-box" role="region" aria-labelledby="hero-title">
-      <h1 id="hero-title" class="hero-title-center">EzySales Academy</h1>
-      <p class="hero-subtitle-center">Train like a team, lead like a pro</p>
-      <a class="hero-cta hero-cta-center" href="onboarding.html">Start Onboarding</a>
+<header class="nav">
+  <div class="brand">
+    <div class="logo">EA</div>
+    <div>
+      <div class="brand-title">EzySales Academy</div>
+      <div class="brand-sub">Team training • Private access</div>
     </div>
-  </section>
-</main>
+  </div>
+  <a href="login.html" class="btn-logout">Sign out</a>
+</header>
 
-
-<!-- MODULE GRID: floating vision-pro tiles -->
 <style>
-.hero {
-  display: flex;
-  justify-content: center;
-  text-align: center;
+/* ---------------- CENTER HERO ---------------- */
+.hero-container{
+  max-width:1200px;
+  margin:20px auto 40px;
+  padding:0 22px;
+  display:flex;
+  justify-content:center;
 }
 
-.hero-center-box {
-  max-width: 700px;
-  margin: 0 auto;
+.hero-box{
+  text-align:center;
+  padding:40px 30px;
+  width:100%;
+  max-width:650px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 60px rgba(0,0,0,0.45);
 }
 
-.hero-title-center {
-  font-size: 40px;
-  font-weight: 800;
-  color: #eaf6ff;
+.hero-box h1{
+  font-size:38px;
+  font-weight:800;
+  margin-bottom:6px;
 }
 
-.hero-subtitle-center {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  color: var(--muted);
-  font-size: 18px;
+.hero-box p{
+  color:var(--muted);
+  margin-bottom:22px;
+  font-size:18px;
 }
 
-.hero-cta-center {
-  display: inline-block;
-  margin-top: 10px;
+.hero-btn{
+  display:inline-block;
+  padding:12px 26px;
+  background:linear-gradient(135deg,#00c8ff,#007bff);
+  color:#00202e;
+  font-weight:800;
+  border-radius:12px;
+  text-decoration:none;
 }
-
 </style>
 
-<section class="section" aria-labelledby="modules-title">
-  <h2 id="modules-title">Training Modules</h2>
+<!-- ---------------- HERO ---------------- -->
+<div class="hero-container">
+  <div class="hero-box">
+    <h1>EzySales Academy</h1>
+    <p>Train like a team, lead like a pro</p>
+    <a href="onboarding.html" class="hero-btn">Start Onboarding</a>
+  </div>
+</div>
 
-  <div class="grid" role="list">
-    <div role="listitem" tabindex="0" class="tile" onclick="go('onboarding.html')" onkeydown="cardKey(event,'onboarding.html')">
-      <div>
-        <h3>📘 Onboarding</h3>
-        <p>7-day starter path to learn the system quickly and start closing leads.</p>
-      </div>
+<style>
+/* ---------------- MODULE GRID ---------------- */
+.section{
+  max-width:1200px;
+  margin:20px auto 80px;
+  padding:0 22px;
+}
+
+.section h2{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.tile{
+  padding:22px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 50px rgba(0,0,0,0.45);
+  cursor:pointer;
+  transition:0.2s ease;
+}
+
+.tile:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 70px rgba(0,0,0,0.55);
+}
+
+.tile h3{
+  margin-bottom:6px;
+  font-size:18px;
+  color:#00c8ff;
+}
+
+.tile p{
+  font-size:14px;
+  color:var(--muted);
+}
+
+.tag{
+  margin-top:12px;
+  color:#e8f5ff;
+  font-weight:700;
+}
+</style>
+
+<section class="section">
+  <h2>Training Modules</h2>
+
+  <div class="grid">
+    <div class="tile" onclick="go('onboarding.html')">
+      <h3>📘 Onboarding</h3>
+      <p>7-day starter path for new RENs.</p>
       <div class="tag">Open →</div>
     </div>
 
-    <div role="listitem" tabindex="0" class="tile" onclick="go('training.html')" onkeydown="cardKey(event,'training.html')">
-      <div>
-        <h3>🎥 Training Videos</h3>
-        <p>Short, actionable lessons: listing, lead handling, viewing, closing.</p>
-      </div>
+    <div class="tile" onclick="go('training.html')">
+      <h3>🎥 Training Videos</h3>
+      <p>Listings, viewings, lead handling, closing.</p>
       <div class="tag">Open →</div>
     </div>
 
-    <div role="listitem" tabindex="0" class="tile" onclick="go('templates.html')" onkeydown="cardKey(event,'templates.html')">
-      <div>
-        <h3>📝 Templates</h3>
-        <p>Copy/paste WHATSAPP scripts, captions, and viewing scripts.</p>
-      </div>
+    <div class="tile" onclick="go('templates.html')">
+      <h3>📝 Templates</h3>
+      <p>Scripts, captions, and viewing templates.</p>
       <div class="tag">Open →</div>
     </div>
 
-    <div role="listitem" tabindex="0" class="tile" onclick="go('projects.html')" onkeydown="cardKey(event,'projects.html')">
-      <div>
-        <h3>🏢 Projects</h3>
-        <p>Mori Residence 3 fact sheet and upcoming launches.</p>
-      </div>
+    <div class="tile" onclick="go('projects.html')">
+      <h3>🏢 Projects</h3>
+      <p>Launch info and cheat sheets.</p>
       <div class="tag">Open →</div>
     </div>
 
-    <div role="listitem" tabindex="0" class="tile" onclick="go('weekly.html')" onkeydown="cardKey(event,'weekly.html')">
-      <div>
-        <h3>📅 Weekly Coaching</h3>
-        <p>KPIs, weekly rhythm, and coaching tasks to measure progress.</p>
-      </div>
+    <div class="tile" onclick="go('weekly.html')">
+      <h3>📅 Weekly Coaching</h3>
+      <p>KPI tracking + coaching action steps.</p>
       <div class="tag">Open →</div>
     </div>
 
-    <div role="listitem" tabindex="0" class="tile" onclick="go('team.html')" onkeydown="cardKey(event,'team.html')">
-      <div>
-        <h3>👥 Team</h3>
-        <p>Meet your leaders, roles, and contact points.</p>
-      </div>
+    <div class="tile" onclick="go('team.html')">
+      <h3>👥 Team</h3>
+      <p>Meet your leaders & members.</p>
       <div class="tag">Open →</div>
     </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
-<style>footer{max-width:1200px;margin:20px auto 68px;padding:0 22px;color:var(--muted);font-size:13px;text-align:center}</style>
-<footer>© EzySales Academy — Private Training</footer>
-
 <script>
 function go(url){ window.location.href = url; }
-function cardKey(e,url){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(url); } }
 </script>
 
 </body>
