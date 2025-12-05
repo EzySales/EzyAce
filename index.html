@@ -3,199 +3,221 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>EzySales Academy — Teamwork Glass Homepage</title>
+<title>EzySales Academy — Neo Glass (Homepage)</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --accent:#2563eb;
-  --muted:#64748b;
-  --glass: rgba(255,255,255,0.32);
-  --glass-strong: rgba(255,255,255,0.55);
-  --border-glass: rgba(255,255,255,0.4);
-  --shadow: rgba(0,0,0,0.18);
-  --radius:18px;
+  --bg-dark:#0b0d11;
+  --accent-1:#00c8ff;
+  --accent-2:#007bff;
+  --accent-3:#ffe761;
+  --glass-weak: rgba(255,255,255,0.04);
+  --glass-strong: rgba(255,255,255,0.08);
+  --card-radius:18px;
+  --muted:#9fb2c9;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-
+html,body{height:100%}
 body{
-  font-family:Inter, sans-serif;
-  color:#0f172a;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--bg-dark);
+  color:#e6f0ff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
-  background:#000;
 }
 
-/* BACKGROUND LAYERS */
-.bg-sky{
-  position:fixed; inset:0;
-  background:linear-gradient(180deg,#ffe9c8 0%, #b0d4ff 60%, #8abaff 100%);
-  z-index:-10;
-}
-.bg-rays{
-  position:fixed; top:0; left:0; right:0; height:70vh;
-  background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.8), transparent 70%);
-  mix-blend-mode:soft-light; z-index:-9;
-}
-.bg-network{
-  position:fixed; inset:0;
-  background: radial-gradient(circle at 40% 60%, rgba(0,119,255,0.25), transparent 60%),
-              radial-gradient(circle at 70% 30%, rgba(0,180,255,0.22), transparent 70%);
-  filter: blur(48px); z-index:-8;
-}
-.bg-silhouette{
-  position:fixed; bottom:0; left:0; right:0; height:48vh;
-  background:url('team-silhouette.png') center bottom/contain no-repeat;
-  opacity:0.55; mix-blend-mode:multiply; z-index:-7;
-}
-.bg-tint{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,0.22); z-index:-6;
-}
-
-/* NAV */
-.nav{
-  max-width:1200px; margin:20px auto 0; padding:0 22px;
-  display:flex; justify-content:space-between; align-items:center;
-}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:46px;height:46px;border-radius:12px;
-  background:linear-gradient(135deg,#2563eb,#38bdf8);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;color:white;
-  box-shadow:0 6px 16px rgba(37,99,235,0.35);
-}
-.btn-login{
-  padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.4);
-  background:rgba(255,255,255,0.1);color:white;text-decoration:none;font-weight:600;
-  backdrop-filter:blur(8px);
-}
-.btn-login:hover{background:rgba(255,255,255,0.2)}
-
-/* HERO */
-.hero{
-  max-width:1150px;margin:32px auto;padding:40px;border-radius:var(--radius);
-  background:var(--glass-strong);border:1px solid var(--border-glass);
-  backdrop-filter:blur(20px);
-  box-shadow:0 12px 40px rgba(0,0,0,0.28);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.hero h1{font-size:40px;font-weight:700}
-.hero p{margin-top:10px;color:var(--muted)}
-.hero .cta{
-  margin-top:22px;display:inline-block;padding:12px 24px;
-  background:var(--accent);color:white;border-radius:12px;
-  text-decoration:none;font-weight:700;
-}
-
-/* MODULE GRID */
-.section{
-  max-width:1150px;margin:42px auto;padding:0 22px;color:white;
-}
-
-.grid{
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.card{
-  padding:22px;border-radius:var(--radius);
-  background:var(--glass);border:1px solid var(--border-glass);
-  backdrop-filter:blur(18px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  cursor:pointer;color:white;
-  transition:0.2s;
-}
-.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,0.35)}
-.card h3{font-size:20px;margin-bottom:6px}
-.card p{font-size:14px;opacity:0.85}
-
-/* RESPONSIVE */
-@media(max-width:950px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:650px){
-  .grid{grid-template-columns:1fr}
-  .hero{flex-direction:column;text-align:center;gap:20px}
-  .hero h1{font-size:30px}
-}
-
+/* ---------- PROTECTION: redirect to login if not authenticated ---------- */
 </style>
 </head>
-
 <body>
+<script>
+  // Protection guard: redirect to login if not logged in
+  if (sessionStorage.getItem("ezyLogin") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 
-<!-- BACKGROUND LAYERS -->
-<div class="bg-sky"></div>
-<div class="bg-rays"></div>
-<div class="bg-network"></div>
-<div class="bg-silhouette"></div>
-<div class="bg-tint"></div>
+<!-- BACKGROUND GLOW LAYERS -->
+<style>
+/* background container styles inserted here so it's inlined and overrides caches */
+.bg-layer{position:fixed;inset:0;z-index:-10;pointer-events:none}
+.bg-sky{
+  position:fixed;inset:0;background:linear-gradient(180deg,#071029 0%, #062034 30%, #031426 100%);
+  opacity:1;filter:saturate(1.08);
+}
+.blob{
+  position:fixed;border-radius:50%;filter:blur(120px);opacity:0.6;mix-blend-mode:screen;
+}
+.blob-a{width:680px;height:680px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));left:-240px;top:-180px}
+.blob-b{width:620px;height:620px;background:linear-gradient(135deg,var(--accent-2),#00f0ff);right:-200px;bottom:-180px}
+.blob-c{width:420px;height:420px;background:var(--accent-3);left:55%;top:30%;opacity:0.18;filter:blur(160px)}
+/* subtle digital noise overlay */
+.bg-noise{
+  position:fixed;inset:0;background:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02), transparent 8%),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.01), transparent 6%);
+  z-index:-8;opacity:0.4;mix-blend-mode:overlay;
+}
+</style>
+
+<div class="bg-layer">
+  <div class="bg-sky" aria-hidden="true"></div>
+  <div class="blob blob-a" aria-hidden="true"></div>
+  <div class="blob blob-b" aria-hidden="true"></div>
+  <div class="blob blob-c" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+</div>
 
 <!-- NAV -->
-<header class="nav">
+<style>
+.nav{max-width:1200px;margin:18px auto;padding:0 22px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#02131d;box-shadow:0 8px 30px rgba(0,140,255,0.18)}
+.title{font-weight:700;font-size:18px;color:#eaf6ff}
+.subtitle{font-size:12px;color:var(--muted)}
+.nav-right{display:flex;gap:12px;align-items:center}
+.btn-ghost{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#cfe9ff;text-decoration:none;font-weight:700}
+.btn-primary{padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));border:none;color:#00141f;font-weight:800}
+</style>
+
+<header class="nav" role="banner">
   <div class="brand">
-    <div class="logo">EA</div>
+    <div class="logo" aria-hidden>EA</div>
     <div>
-      <div style="font-weight:700;color:white;font-size:18px">EzySales Academy</div>
-      <div style="font-size:12px;color:#dbeafe">Professional Real Estate Training</div>
+      <div class="title">EzySales Academy</div>
+      <div class="subtitle">Team training • Private access</div>
     </div>
   </div>
-  <a class="btn-login" href="login.html">Team Login</a>
+
+  <div class="nav-right">
+    <a class="btn-ghost" href="login.html">Sign out</a>
+  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>EzySales Academy — Teamwork Glass Edition</h1>
-    <p>Train smarter. Close faster. Grow together as a team.</p>
-    <a class="cta" href="onboarding.html">Start Onboarding</a>
+<!-- HERO (Split with glass panel + floating orb) -->
+<style>
+.hero-wrap{max-width:1200px;margin:28px auto;padding:20px}
+.hero{
+  display:grid;grid-template-columns:1fr 360px;gap:28px;
+  align-items:center;
+}
+.glass-hero{
+  border-radius:20px;padding:34px;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(18px);box-shadow:0 18px 60px rgba(0,0,0,0.45);
+}
+.hero h1{font-size:36px;color:#eef9ff;margin-bottom:8px}
+.hero p{color:var(--muted);margin-bottom:16px}
+.hero-cta{display:inline-block;padding:12px 20px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#00151a;font-weight:800;text-decoration:none}
+.hero-badge{
+  border-radius:14px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(0,0,0,0.4)
+}
+</style>
+
+<main class="hero-wrap" role="main">
+  <section class="hero">
+    <div class="glass-hero" role="region" aria-labelledby="hero-title">
+      <h1 id="hero-title">EzySales Academy — Train like a team, lead like a pro</h1>
+      <p>Private training for dedicated RENs. Focused modules, step-by-step onboarding, and playbooks to close consistently.</p>
+      <a class="hero-cta" href="onboarding.html">Start Onboarding</a>
+    </div>
+
+    <div class="hero-badge" aria-hidden="true">
+      <!-- stylized badge / emblem -->
+      <div style="text-align:center">
+        <div style="font-weight:800;color:var(--accent-1);font-size:20px">EzySales</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px">Academy</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- MODULE GRID: floating vision-pro tiles -->
+<style>
+.section{max-width:1200px;margin:18px auto 60px;padding:0 22px}
+.section h2{color:#eaf6ff;font-size:20px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tile{
+  border-radius:18px;padding:22px;min-height:140px;cursor:pointer;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);box-shadow: 0 18px 40px rgba(2,10,20,0.45);
+  transition:transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
+  color:#e9f7ff;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.tile:hover{transform:translateY(-12px);box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 30px rgba(0,200,255,0.08)}
+.tile h3{font-size:18px;margin:0 0 8px;color:var(--accent-1)}
+.tile p{color:var(--muted);margin:0;font-size:14px}
+.tile .tag{font-weight:700;color:#dff8ff;font-size:13px;margin-top:12px}
+</style>
+
+<section class="section" aria-labelledby="modules-title">
+  <h2 id="modules-title">Training Modules</h2>
+
+  <div class="grid" role="list">
+    <div role="listitem" tabindex="0" class="tile" onclick="go('onboarding.html')" onkeydown="cardKey(event,'onboarding.html')">
+      <div>
+        <h3>📘 Onboarding</h3>
+        <p>7-day starter path to learn the system quickly and start closing leads.</p>
+      </div>
+      <div class="tag">Open →</div>
+    </div>
+
+    <div role="listitem" tabindex="0" class="tile" onclick="go('training.html')" onkeydown="cardKey(event,'training.html')">
+      <div>
+        <h3>🎥 Training Videos</h3>
+        <p>Short, actionable lessons: listing, lead handling, viewing, closing.</p>
+      </div>
+      <div class="tag">Open →</div>
+    </div>
+
+    <div role="listitem" tabindex="0" class="tile" onclick="go('templates.html')" onkeydown="cardKey(event,'templates.html')">
+      <div>
+        <h3>📝 Templates</h3>
+        <p>Copy/paste WHATSAPP scripts, captions, and viewing scripts.</p>
+      </div>
+      <div class="tag">Open →</div>
+    </div>
+
+    <div role="listitem" tabindex="0" class="tile" onclick="go('projects.html')" onkeydown="cardKey(event,'projects.html')">
+      <div>
+        <h3>🏢 Projects</h3>
+        <p>Mori Residence 3 fact sheet and upcoming launches.</p>
+      </div>
+      <div class="tag">Open →</div>
+    </div>
+
+    <div role="listitem" tabindex="0" class="tile" onclick="go('weekly.html')" onkeydown="cardKey(event,'weekly.html')">
+      <div>
+        <h3>📅 Weekly Coaching</h3>
+        <p>KPIs, weekly rhythm, and coaching tasks to measure progress.</p>
+      </div>
+      <div class="tag">Open →</div>
+    </div>
+
+    <div role="listitem" tabindex="0" class="tile" onclick="go('team.html')" onkeydown="cardKey(event,'team.html')">
+      <div>
+        <h3>👥 Team</h3>
+        <p>Meet your leaders, roles, and contact points.</p>
+      </div>
+      <div class="tag">Open →</div>
+    </div>
+
   </div>
 </section>
 
-<!-- MODULES (WITHOUT RESOURCES) -->
-<section class="section">
-  <h2 style="font-size:22px;margin-bottom:12px">Training Modules</h2>
-
-  <div class="grid">
-
-    <div class="card" onclick="go('onboarding.html')">
-      <h3>📘 Onboarding</h3>
-      <p>7-day beginner path for new RENs.</p>
-    </div>
-
-    <div class="card" onclick="go('training.html')">
-      <h3>🎥 Training Videos</h3>
-      <p>Short & powerful lessons to level up fast.</p>
-    </div>
-
-    <div class="card" onclick="go('templates.html')">
-      <h3>📝 Templates</h3>
-      <p>Scripts, captions, follow-up messages.</p>
-    </div>
-
-    <div class="card" onclick="go('projects.html')">
-      <h3>🏢 Projects</h3>
-      <p>Mori Residence 3 + upcoming project sheets.</p>
-    </div>
-
-    <div class="card" onclick="go('weekly.html')">
-      <h3>📅 Weekly Coaching</h3>
-      <p>KPI goals, coaching support & progress tracking.</p>
-    </div>
-
-    <div class="card" onclick="go('team.html')">
-      <h3>👥 Team</h3>
-      <p>Meet your leaders & members.</p>
-    </div>
-
-  </div>
-</section>
+<!-- FOOTER -->
+<style>footer{max-width:1200px;margin:20px auto 68px;padding:0 22px;color:var(--muted);font-size:13px;text-align:center}</style>
+<footer>© EzySales Academy — Private Training</footer>
 
 <script>
-function go(page){ window.location.href = page; }
+function go(url){ window.location.href = url; }
+function cardKey(e,url){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(url); } }
 </script>
 
 </body>
