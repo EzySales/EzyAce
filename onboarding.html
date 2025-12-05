@@ -1,123 +1,285 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Onboarding — EzySales Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {--primary:#2563eb;--secondary:#0ea5e9;--text:#0f172a;--muted:#64748b;--bg:#f8fafc;--card:#ffffff;}
-body{font-family:Inter;background:var(--bg);color:var(--text);margin:0}
-header{background:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-nav a{margin-left:20px;font-weight:600;text-decoration:none;color:var(--text)}
-nav a:hover{color:var(--primary)}
-.section{max-width:900px;margin:40px auto;padding:0 20px}
-h1{font-size:32px;font-weight:700;margin-bottom:10px}
-p.lead{color:var(--muted);margin-bottom:30px;font-size:16px}
-.card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.05);margin-bottom:20px}
-.day-title{font-size:20px;font-weight:700;color:var(--primary);margin-bottom:6px}
-ul{margin:10px 0 0 20px;color:var(--muted)}
-footer{text-align:center;padding:20px;color:var(--muted);margin-top:40px;font-size:14px}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EzySales Academy — Glass + Teamwork Background</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fbfbfe;
+      --accent:#2563eb;
+      --muted:#64748b;
+      --card-radius:16px;
+      --glass-border: rgba(13,27,62,0.06);
+      --shadow-soft: 0 10px 30px rgba(16,24,40,0.06);
+      --shadow-strong: 0 20px 50px rgba(16,24,40,0.10);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#071029;
+      background: var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      min-height:100vh;
+      position:relative;
+      overflow-x:hidden;
+      /* base fallback */
+    }
+
+    /* ---------- Background composition ---------- */
+    /* 1) gradient + soft blobs (layered) */
+    body::before{
+      content:'';
+      position:fixed; inset:0; z-index:-3;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(255,236,213,0.85) 0%, rgba(255,236,213,0.0) 30%),
+        radial-gradient(ellipse at 80% 70%, rgba(219,234,254,0.80) 0%, rgba(219,234,254,0.0) 30%),
+        linear-gradient(180deg, rgba(255,250,246,1) 0%, rgba(243,248,255,1) 50%, rgba(239,246,255,1) 100%);
+      filter: blur(6px) saturate(110%);
+      transform: scale(1.02);
+      pointer-events:none;
+    }
+
+    /* 2) soft abstract "cloud" shapes using SVG dataURI (subtle, blurred) */
+    body::after{
+      content:'';
+      position:fixed; inset:0; z-index:-2;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'>\
+  <defs>\
+    <linearGradient id='g1' x1='0' x2='1'>\
+      <stop offset='0' stop-color='%23ffe7c6' stop-opacity='0.85'/>\
+      <stop offset='1' stop-color='%23dbe9ff' stop-opacity='0.55'/>\
+    </linearGradient>\
+  </defs>\
+  <g transform='scale(1)'>\
+    <ellipse cx='220' cy='200' rx='260' ry='120' fill='url(%23g1)' opacity='0.65'/>\
+    <ellipse cx='900' cy='420' rx='360' ry='180' fill='url(%23g1)' opacity='0.55'/>\
+    <ellipse cx='640' cy='120' rx='320' ry='120' fill='url(%23g1)' opacity='0.35'/>\
+  </g>\
+</svg>");
+      background-size:cover;
+      background-repeat:no-repeat;
+      filter: blur(18px) opacity(0.9);
+      transform: scale(1.02);
+      pointer-events:none;
+    }
+
+    /* 3) tech lines + silhouette overlay (medium visibility) */
+    .bg-overlay{
+      position:fixed; inset:0; z-index:-1;
+      pointer-events:none;
+      display:block;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'>\
+  <defs>\
+    <linearGradient id='sun' x1='0' x2='0' y1='0' y2='1'>\
+      <stop offset='0' stop-color='%23ffdcb1' stop-opacity='0.9'/>\
+      <stop offset='1' stop-color='%23cfe9ff' stop-opacity='0.6'/>\
+    </linearGradient>\
+  </defs>\
+  <!-- soft sun glow -->\
+  <ellipse cx='600' cy='180' rx='260' ry='100' fill='url(%23sun)' opacity='0.25'/>\
+  <!-- tech lines (very subtle) -->\
+  <g stroke='%230d4b8b' stroke-opacity='0.08' stroke-width='1' fill='none'>\
+    <path d='M120 480 C240 380, 400 420, 560 360'/>\
+    <path d='M280 520 C420 440, 640 460, 880 380'/>\
+    <path d='M60 300 C240 220, 520 240, 760 180'/>\
+  </g>\
+  <!-- nodes -->\
+  <g fill='%230d4b8b' fill-opacity='0.08'>\
+    <circle cx='120' cy='480' r='4'/>\
+    <circle cx='560' cy='360' r='4'/>\
+    <circle cx='880' cy='380' r='4'/>\
+    <circle cx='760' cy='180' r='4'/>\
+  </g>\
+  <!-- silhouettes of teamwork (medium opacity & blurred by CSS) -->\
+  <g transform='translate(0,60) scale(0.9)' fill='%23071229' fill-opacity='0.14'>\
+    <!-- simplified stylized group of people on ridge -->\
+    <path d='M150 430 L180 380 L205 390 L225 360 L260 350 L300 340 L340 330 L380 318 L420 310 L470 295 L520 290 L560 288 L600 285 L640 286 L680 292 L720 305 L760 322 L800 340 L840 362 L880 380 L920 390 L960 400 L1000 408 L1050 420 L1100 430 L1100 460 L1080 450 L1040 440 L1000 430 L960 420 L920 410 L880 400 L840 390 L800 380 L760 370 L720 365 L680 362 L640 360 L600 360 L560 362 L520 364 L480 370 L440 378 L400 388 L360 400 L320 410 L280 420 Z'/>\
+  </g>\
+</svg>");
+      background-size:cover;
+      background-repeat:no-repeat;
+      opacity:0.95;
+      mix-blend-mode: normal;
+      filter: blur(0px) contrast(100%);
+    }
+
+    /* ---------- top navigation / header ---------- */
+    .nav {
+      max-width:1200px;
+      margin:20px auto 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 24px;
+      gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#06b6d4);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;
+      box-shadow: 0 8px 28px rgba(37,99,235,0.12);
+    }
+    .brand .title{font-weight:700}
+    .nav-right{display:flex;gap:10px;align-items:center}
+    .btn-login{
+      background:rgba(255,255,255,0.7);
+      border:1px solid var(--glass-border);
+      padding:8px 12px;border-radius:12px;font-weight:700;color:var(--accent);
+      text-decoration:none;display:inline-flex;align-items:center;gap:8px;backdrop-filter: blur(8px);
+    }
+    .btn-login:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+
+    /* ---------- hero (frosted) ---------- */
+    .hero{
+      max-width:1100px;margin:28px auto;padding:42px;border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.54));
+      border:1px solid var(--glass-border);
+      box-shadow: var(--shadow-strong);
+      display:flex;gap:20px;align-items:center;
+      backdrop-filter: blur(14px);
+    }
+    .hero-left{flex:1}
+    .hero h1{margin:0;font-size:34px;font-weight:700;color:#071029}
+    .hero p{margin:8px 0 0;color:var(--muted);font-size:15px}
+    .cta{display:inline-block;margin-top:16px;background:var(--accent);color:white;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:700}
+
+    /* ---------- modules grid (glass cards) ---------- */
+    .section{max-width:1200px;margin:38px auto;padding:0 22px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px}
+    .card{
+      border-radius:var(--card-radius);
+      padding:20px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between;
+      cursor:pointer; transition: transform .14s ease, box-shadow .14s ease;
+      background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.45));
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-soft);
+    }
+    .card:hover{ transform: translateY(-10px); box-shadow: var(--shadow-strong) }
+    .card h3{font-size:18px;margin:0 0 8px;color:var(--accent)}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .card .open{margin-top:12px;font-weight:700;color:var(--accent);font-size:13px}
+
+    /* footer */
+    footer{max-width:1200px;margin:30px auto;color:var(--muted);font-size:13px;text-align:center;padding:8px 22px}
+
+    /* responsive */
+    @media(max-width:980px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:640px){
+      .grid{grid-template-columns:1fr}
+      .nav{padding:12px 16px}
+      .hero h1{font-size:24px}
+    }
+
+    /* accessible focus */
+    .card:focus { outline: 3px solid rgba(37,99,235,0.12); transform: translateY(-8px); }
+  </style>
 </head>
 <body>
 
+  <!-- SVG overlay with silhouettes / tech lines -->
+  <div class="bg-overlay" aria-hidden></div>
+
+  <header class="nav" role="banner">
+    <div class="brand">
+      <div class="logo" aria-hidden>EA</div>
+      <div>
+        <div style="font-weight:700">EzySales Academy</div>
+        <div style="font-size:12px;color:var(--muted)">Professional Real Estate Training</div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <a class="btn-login" href="login.html" aria-label="Team login">Team Login</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h1 id="hero-title">EzySales Academy — Train Faster. Win Together.</h1>
+        <p>Onboard quickly, practise the right skills, and close deals as a team. Built for REN leaders who want a system.</p>
+        <a class="cta" href="onboarding.html">Start Onboarding</a>
+      </div>
+      <div style="width:240px;height:140px;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(243,248,255,0.85));border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;box-shadow: 0 8px 24px rgba(16,24,40,0.04);">
+        <div style="text-align:center;color:var(--muted)"><strong style="color:var(--accent);font-size:18px">EzySales</strong><div style="font-size:12px;margin-top:6px">Academy</div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="modules-title">
+      <h2 id="modules-title" style="font-size:20px;margin:0 0 10px 0;font-weight:700;color:#071029">Training Modules</h2>
+
+      <div class="grid" role="list">
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('onboarding.html')" onkeydown="cardKey(event,'onboarding.html')" aria-label="Open Onboarding">
+          <div><h3>📘 Onboarding</h3><p>Step-by-step 7-day path — everything a new REN needs to start strong.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('training.html')" onkeydown="cardKey(event,'training.html')" aria-label="Open Training Videos">
+          <div><h3>🎥 Training Videos</h3><p>Short, actionable lessons: listings, viewings, lead handling, closing.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('templates.html')" onkeydown="cardKey(event,'templates.html')" aria-label="Open Templates">
+          <div><h3>📝 Templates</h3><p>Copy-ready WhatsApp replies, captions, viewing scripts, and templates.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('projects.html')" onkeydown="cardKey(event,'projects.html')" aria-label="Open Projects">
+          <div><h3>🏢 Projects</h3><p>Project cheat sheets: Mori Residence 3 and other launches with key facts.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('weekly.html')" onkeydown="cardKey(event,'weekly.html')" aria-label="Open Weekly Coaching">
+          <div><h3>📅 Weekly Coaching</h3><p>KPI targets, weekly rhythm, and quick coaching tips to hit goals.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('team.html')" onkeydown="cardKey(event,'team.html')" aria-label="Open Team">
+          <div><h3>👥 Team</h3><p>Meet your leaders & agents — contact points and roles.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+        <div role="listitem" tabindex="0" class="card" onclick="navigate('resources.html')" onkeydown="cardKey(event,'resources.html')" aria-label="Open Resources">
+          <div><h3>📚 Resources</h3><p>Central hub for downloads: PDFs, cheat sheets, and tools.</p></div>
+          <div class="open">Open →</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © EzySales Academy — Built for teams that win together
+  </footer>
+
 <script>
-  if (sessionStorage.getItem("ezyLogin") !== "true") {
-    window.location.href = "login.html";
+  // Navigate helper (works as full-card click)
+  function navigate(url){
+    window.location.href = url;
+  }
+  // allow keyboard activation on focused cards
+  function cardKey(e, url){
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      navigate(url);
+    }
   }
 </script>
-
-<header>
-  <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="training.html">Videos</a>
-    <a href="templates.html">Templates</a>
-    <a href="projects.html">Projects</a>
-    <a href="weekly.html">Coaching</a>
-    <a href="team.html">Team</a>
-    <a href="resources.html">Resources</a>
-  </nav>
-</header>
-
-<section class="section">
-  <h1>7-Day Onboarding Path</h1>
-  <p class="lead">Your step-by-step starting guide for all new RENs under EzySales Academy.</p>
-
-  <div class="card">
-    <div class="day-title">Day 1 — Introduction</div>
-    <ul>
-      <li>REN roles & responsibilities</li>
-      <li>Commission structure & how you earn</li>
-      <li>Understanding SPA, LOA, tenancy contracts</li>
-      <li>Basic compliance and ethics</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="day-title">Day 2 — Tools Setup</div>
-    <ul>
-      <li>WhatsApp Business setup</li>
-      <li>Canva design templates</li>
-      <li>Google Drive folder structure</li>
-      <li>Profile photo, namecard template</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="day-title">Day 3 — Listing Skills</div>
-    <ul>
-      <li>How to take property photos</li>
-      <li>How to write a good caption</li>
-      <li>Posting to Mudah, iProperty, FB Marketplace</li>
-      <li>Owner listing script</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="day-title">Day 4 — Prospecting & Leads</div>
-    <ul>
-      <li>Free & paid lead sources</li>
-      <li>How to reply to leads</li>
-      <li>Lead conversion techniques</li>
-      <li>Follow-up strategy</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="day-title">Day 5 — Viewing Process</div>
-    <ul>
-      <li>Viewing script</li>
-      <li>How to present a house</li>
-      <li>Handling objections</li>
-      <li>Safety checklist</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="day-title">Day 6 — Closing & Booking Flow</div>
-    <ul>
-      <li>Booking form & deposit explanation</li>
-      <li>Loan process & common issues</li>
-      <li>SPA signing timeline</li>
-      <li>When commission is released</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="day-title">Day 7 — KPIs & Targets</div>
-    <ul>
-      <li>Weekly KPI setup</li>
-      <li>Listing vs leads balance</li>
-      <li>Action plan for Week 1–4</li>
-    </ul>
-  </div>
-</section>
-
-<footer>
-  © EzySales Academy — Onboarding Module
-</footer>
-
 </body>
 </html>
