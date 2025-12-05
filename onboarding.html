@@ -1,291 +1,217 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EzySales Academy — Glassmorphism (Teamwork Background)</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Onboarding — EzySales Academy</title>
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --accent:#2563eb;
-      --muted:#64748b;
-      --glass-border: rgba(13,27,62,0.06);
-      --card-radius:16px;
-      --bg-white:#fbfdff;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      color:#071029;
-      background:var(--bg-white);
-      min-height:100vh;
-      overflow-y:auto;
-    }
+<style>
+:root{
+  --bg-dark:#0b0d11;
+  --accent-1:#00c8ff;
+  --accent-2:#007bff;
+  --glass: rgba(255,255,255,0.04);
+  --glass-strong: rgba(255,255,255,0.07);
+  --glass-border: rgba(255,255,255,0.08);
+  --muted: #9fb2c9;
+  --tile-radius:18px;
+  --tile-height:120px; /* V2 large tiles */
+}
 
-    /* ---------- BACKGROUND LAYERS ---------- */
-    .background {
-      position:fixed;
-      inset:0;
-      z-index:-10;
-      pointer-events:none;
-      overflow:hidden;
-    }
+/* Base reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--bg-dark);
+  color: #e8f5ff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+  padding-bottom:48px;
+}
 
-    /* soft sunrise gradient */
-    .bg-gradient{
-      position:absolute;inset:0;
-      background:
-        radial-gradient(1200px 600px at 10% 20%, rgba(255,200,160,0.15) 0%, rgba(255,200,160,0.08) 10%, transparent 40%),
-        radial-gradient(1000px 520px at 90% 70%, rgba(160,190,255,0.12) 0%, rgba(160,190,255,0.06) 12%, transparent 48%),
-        linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(252,253,255,0.92) 30%, rgba(245,249,255,0.95) 100%);
-      filter:blur(6px) saturate(1.02);
-      transform:translateZ(0);
-    }
-
-    /* soft blurred abstract shapes (cloud blobs) */
-    .bg-blobs{
-      position:absolute;inset:-10% -10% auto -10%; height:60%;
-      background:
-        radial-gradient(400px 200px at 20% 20%, rgba(255,180,120,0.18), transparent 30%),
-        radial-gradient(500px 260px at 80% 60%, rgba(100,160,255,0.12), transparent 28%),
-        radial-gradient(300px 180px at 50% 40%, rgba(220,230,255,0.08), transparent 35%);
-      filter: blur(28px);
-      opacity:0.95;
-    }
-
-    /* tech network SVG overlay (low opacity lines + nodes) */
-    .bg-network{
-      position:absolute;inset:0;opacity:0.12;filter: blur(0.5px) contrast(1);
-    }
-
-    /* silhouette layer (medium visibility) */
-    .bg-silhouette{
-      position:absolute;left:0;right:0;bottom:-6%;
-      height:55%;
-      display:block;
-      opacity:0.45;
-      filter: blur(4px) saturate(0.9);
-      mix-blend-mode: normal;
-      pointer-events:none;
-    }
-
-    /* small tint overlay so glass stands out */
-    .bg-tint {
-      position:absolute;inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.3), rgba(250,252,255,0.6));
-      mix-blend-mode: overlay;
-      pointer-events:none;
-    }
-
-
-    /* ---------- NAV / HEADER ---------- */
-    .nav{
-      max-width:1200px;margin:22px auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;
-    }
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:0 8px 20px rgba(37,99,235,0.12)}
-    .title-block{line-height:1}
-    .title{font-weight:700;font-size:16px}
-    .subtitle{font-size:12px;color:var(--muted)}
-    .nav-right{display:flex;gap:12px;align-items:center}
-    .btn-login{background:transparent;border:1px solid var(--glass-border);padding:8px 14px;border-radius:12px;font-weight:700;color:var(--accent);text-decoration:none;backdrop-filter: blur(6px);-webkit-backdrop-filter: blur(6px)}
-
-    /* ---------- HERO ---------- */
-    .hero-wrap{max-width:1200px;margin:28px auto;padding:28px}
-    .hero{
-      display:flex;align-items:center;gap:22px;padding:32px;border-radius:20px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.58));
-      border:1px solid var(--glass-border);
-      box-shadow:0 12px 36px rgba(12,20,32,0.06);
-      backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px);
-    }
-    .hero-left{flex:1}
-    .hero h1{margin:0;font-size:36px;font-weight:700}
-    .hero p{margin:8px 0 0;color:var(--muted)}
-    .cta{display:inline-block;margin-top:16px;padding:12px 18px;background:var(--accent);color:white;border-radius:12px;text-decoration:none;font-weight:700}
-
-    /* ---------- MODULE GRID (glass cards) ---------- */
-    .section{max-width:1200px;margin:28px auto;padding:0 20px}
-    .section h2{font-size:20px;margin:0 0 12px 0;font-weight:700;color:#071029}
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:18px;
-      margin-top:18px;
-    }
-    .card{
-      border-radius:var(--card-radius);
-      padding:18px;
-      min-height:130px;
-      display:flex;flex-direction:column;justify-content:space-between;
-      cursor:pointer;
-      transition: transform .16s cubic-bezier(.2,.9,.3,1), box-shadow .16s;
-      background: linear-gradient(180deg, rgba(255,255,255,0.56), rgba(255,255,255,0.48));
-      border:1px solid var(--glass-border);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 10px 30px rgba(12,20,30,0.06);
-    }
-    .card:hover{ transform: translateY(-8px); box-shadow: 0 24px 50px rgba(12,20,30,0.12)}
-    .card h3{font-size:16px;margin:0 0 8px;color:var(--accent)}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .card .chev{margin-top:10px;color:var(--accent);font-weight:700;font-size:13px}
-
-    /* footer */
-    footer{max-width:1200px;margin:26px auto;color:var(--muted);font-size:13px;text-align:center;padding:8px 20px}
-
-    /* responsive */
-    @media (max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} .hero h1{font-size:28px} }
-    @media (max-width:640px){ .grid{grid-template-columns:1fr} .nav{padding:8px 12px} .hero{flex-direction:column;align-items:flex-start;padding:18px} }
-
-    /* accessible focus */
-    .card:focus{outline:3px solid rgba(37,99,235,0.12);transform:translateY(-6px);}
-
-  </style>
+/* ---------- PROTECTION: redirect if not logged in ---------- */
+</style>
 </head>
 <body>
+<script>
+  // protection guard: redirect to login if not authenticated
+  if (sessionStorage.getItem("ezyLogin") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 
-  <!-- BACKGROUND LAYERS -->
-  <div class="background" aria-hidden="true">
-    <div class="bg-gradient"></div>
-    <div class="bg-blobs" aria-hidden="true"></div>
+<style>
+/* Background glow layers */
+.bg-wrap{position:fixed;inset:0;z-index:-20;pointer-events:none}
+.blob{position:fixed;border-radius:50%;filter:blur(120px);opacity:0.55;mix-blend-mode:screen}
+.blob-a{width:700px;height:700px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));left:-260px;top:-220px}
+.blob-b{width:620px;height:620px;background:linear-gradient(135deg,var(--accent-2),#00f0ff);right:-200px;bottom:-200px}
+.overlay-noise{position:fixed;inset:0;background:
+  radial-gradient(circle at 10% 20%, rgba(255,255,255,0.01), transparent 8%),
+  radial-gradient(circle at 90% 80%, rgba(255,255,255,0.008), transparent 6%);
+  z-index:-18;opacity:0.35;mix-blend-mode:overlay}
 
-    <!-- Tech network overlay (SVG) -->
-    <svg class="bg-network" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="ng" x1="0" x2="1">
-          <stop offset="0" stop-color="#8CC8FF" stop-opacity="0.9"/>
-          <stop offset="1" stop-color="#C5A6FF" stop-opacity="0.9"/>
-        </linearGradient>
-      </defs>
-      <g transform="translate(0,0)" fill="none" stroke="url(#ng)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
-        <!-- random network style lines and nodes (subtle, repeated) -->
-        <path d="M120 200 L220 150 L300 170 L380 120" />
-        <path d="M200 320 L280 290 L380 310 L480 260" />
-        <path d="M640 180 L720 140 L820 160 L920 115" />
-        <path d="M860 340 L940 300 L1040 320" />
-        <circle cx="120" cy="200" r="3.2" />
-        <circle cx="220" cy="150" r="3.2" />
-        <circle cx="300" cy="170" r="3.2" />
-        <circle cx="380" cy="120" r="3.2" />
-        <circle cx="480" cy="260" r="3.2" />
-        <circle cx="720" cy="140" r="3.2" />
-        <circle cx="820" cy="160" r="3.2" />
-        <circle cx="940" cy="300" r="3.2" />
-      </g>
-    </svg>
+/* Container */
+.container{max-width:900px;margin:20px auto;padding:0 20px}
 
-    <!-- Soft silhouette layer (vector shapes blend) -->
-    <!-- If you have a PNG silhouette, replace the <svg> below with <img src="your-silhouette.png"> -->
-    <svg class="bg-silhouette" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(0,40)" fill="none">
-        <!-- simplified soft silhouettes as shapes (artistic hint) -->
-        <path d="M30 420 Q140 300 240 390 Q360 480 480 420 Q600 360 720 420 Q860 490 1000 420 Q1120 360 1280 420 Q1400 470 1560 420 L1560 600 L0 600 Z"
-              fill="rgba(12,18,28,0.14)"/>
-        <path d="M220 390 Q300 320 360 360 Q430 395 500 360 Q560 330 640 360 Q700 390 760 360"
-              fill="rgba(255,255,255,0.02)"/>
-      </g>
-    </svg>
+/* Header/nav */
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#02131d}
+.brand-title{font-weight:700;font-size:18px}
+.brand-sub{font-size:12px;color:var(--muted)}
+.signout{padding:8px 12px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:#dff6ff;text-decoration:none;font-weight:700}
 
-    <div class="bg-tint"></div>
-  </div>
+/* Page title */
+.title-wrap{margin:8px 0 22px}
+h1{font-size:28px;margin-bottom:6px}
+.lead{color:var(--muted);font-size:15px;max-width:780px}
 
-  <!-- NAV -->
-  <header class="nav" role="banner" aria-label="Main navigation">
+/* Tiles area — vertical layout */
+.tiles{display:flex;flex-direction:column;gap:18px;margin-top:22px}
+
+/* Tile style (large V2) */
+.tile{
+  height:var(--tile-height);
+  border-radius:var(--tile-radius);
+  padding:20px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.45);
+  cursor:pointer;
+  transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
+}
+.tile:hover{transform:translateY(-10px);box-shadow:0 36px 90px rgba(0,0,0,0.64), 0 0 30px rgba(0,200,255,0.06)}
+.tile:active{transform:translateY(-4px)}
+.tile:focus{outline:3px solid rgba(0,200,255,0.12);transform:translateY(-8px)}
+
+.tile-left{display:flex;gap:14px;align-items:center}
+.tile-icon{
+  width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.04);
+  font-size:28px;
+  color:var(--accent-1);
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.25);
+}
+.tile-title{font-weight:800;font-size:18px;color:#eaf8ff}
+.tile-sub{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* right chevron */
+.chev{font-weight:800;color:var(--accent-1)}
+
+/* footer */
+.footer{max-width:900px;margin:36px auto 80px;text-align:center;color:var(--muted);font-size:13px}
+
+/* responsive adjustments */
+@media(max-width:720px){
+  .tile{height:110px;padding:16px}
+  .tile-icon{width:60px;height:60px;font-size:24px}
+  h1{font-size:24px}
+  .container{padding:0 14px}
+}
+</style>
+
+<!-- Background glow -->
+<div class="bg-wrap" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob-c" style="display:none;"></div>
+  <div class="overlay-noise"></div>
+</div>
+
+<div class="container" role="main">
+  <header class="header" role="banner">
     <div class="brand">
       <div class="logo" aria-hidden>EA</div>
-      <div class="title-block">
-        <div class="title">EzySales Academy</div>
-        <div class="subtitle">Professional Real Estate Training</div>
+      <div>
+        <div class="brand-title">EzySales Academy</div>
+        <div class="brand-sub">Onboarding • Weekly visual modules</div>
       </div>
     </div>
-
-    <div class="nav-right">
-      <a class="btn-login" href="login.html" aria-label="Team login">Team Login</a>
-    </div>
+    <a class="signout" href="login.html" aria-label="Sign out">Sign out</a>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero-wrap">
-      <div class="hero" role="region" aria-labelledby="hero-title">
-        <div class="hero-left">
-          <h1 id="hero-title">EzySales Academy — Learn, Grow, Close</h1>
-          <p>Structured training, real teamwork — onboard fast, sell smarter.</p>
-          <a class="cta" href="onboarding.html">Start Onboarding</a>
-        </div>
+  <div class="title-wrap">
+    <h1>Onboarding — Weekly Path</h1>
+    <div class="lead">Part-timers friendly: each week is a clear module you can complete in your own time. Open a week to view mind maps, slides, images and tasks.</div>
+  </div>
 
-        <div style="width:220px;height:120px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(250,250,255,0.72));border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(12,20,30,0.04)">
-          <div style="text-align:center;color:var(--muted)"><strong style="color:var(--accent);font-size:18px">EzySales</strong><div style="font-size:12px;margin-top:6px">Academy</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULES -->
-    <section class="section" aria-labelledby="modules-title">
-      <h2 id="modules-title">Training Modules</h2>
-
-      <div class="grid" role="list">
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('onboarding.html')" onkeydown="cardKey(event,'onboarding.html')" aria-label="Open Onboarding">
-          <div><h3>📘 Onboarding</h3><p>Step-by-step 7-day path — everything a new REN needs to start strong.</p></div>
-          <div class="chev">Open →</div>
-        </div>
-
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('training.html')" onkeydown="cardKey(event,'training.html')" aria-label="Open Training Videos">
-          <div><h3>🎥 Training Videos</h3><p>Short, actionable lessons: listings, viewings, lead handling, closing.</p></div>
-          <div class="chev">Open →</div>
-        </div>
-
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('templates.html')" onkeydown="cardKey(event,'templates.html')" aria-label="Open Templates">
-          <div><h3>📝 Templates</h3><p>Copy-ready WhatsApp replies, captions, viewing scripts, and templates.</p></div>
-          <div class="chev">Open →</div>
-        </div>
-
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('projects.html')" onkeydown="cardKey(event,'projects.html')" aria-label="Open Projects">
-          <div><h3>🏢 Projects</h3><p>Project cheat sheets: Mori Residence 3 and other launches with key facts.</p></div>
-          <div class="chev">Open →</div>
-        </div>
-
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('weekly.html')" onkeydown="cardKey(event,'weekly.html')" aria-label="Open Weekly Coaching">
-          <div><h3>📅 Weekly Coaching</h3><p>KPI targets, weekly rhythm, and quick coaching tips to hit goals.</p></div>
-          <div class="chev">Open →</div>
-        </div>
-
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('team.html')" onkeydown="cardKey(event,'team.html')" aria-label="Open Team">
-          <div><h3>👥 Team</h3><p>Meet your leaders & agents — contact points and roles.</p></div>
-          <div class="chev">Open →</div>
-        </div>
-
-        <div role="listitem" tabindex="0" class="card" onclick="navigate('resources.html')" onkeydown="cardKey(event,'resources.html')" aria-label="Open Resources">
-          <div><h3>📚 Resources</h3><p>Central hub for downloads: PDFs, cheat sheets, and tools.</p></div>
-          <div class="chev">Open →</div>
+  <nav class="tiles" aria-label="Onboarding weeks">
+    <div class="tile" role="link" tabindex="0" onclick="openWeek('week1.html')" onkeydown="keyNav(event,'week1.html')" aria-label="Week 1 - Business Setup">
+      <div class="tile-left">
+        <div class="tile-icon">1</div>
+        <div>
+          <div class="tile-title">Week 1 — Business Setup & Branding</div>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="chev">→</div>
+    </div>
 
-  <footer>© EzySales Academy — Built for teams</footer>
+    <div class="tile" role="link" tabindex="0" onclick="openWeek('week2.html')" onkeydown="keyNav(event,'week2.html')" aria-label="Week 2 - Projects & Listing">
+      <div class="tile-left">
+        <div class="tile-icon">2</div>
+        <div>
+          <div class="tile-title">Week 2 — Projects & Listing Skills</div>
+        </div>
+      </div>
+      <div class="chev">→</div>
+    </div>
 
-  <script>
-    // full-card navigation helper
-    function navigate(url){
-      window.location.href = url;
+    <div class="tile" role="link" tabindex="0" onclick="openWeek('week3.html')" onkeydown="keyNav(event,'week3.html')" aria-label="Week 3 - Lead Handling">
+      <div class="tile-left">
+        <div class="tile-icon">3</div>
+        <div>
+          <div class="tile-title">Week 3 — Lead Generation & Follow-up</div>
+        </div>
+      </div>
+      <div class="chev">→</div>
+    </div>
+
+    <div class="tile" role="link" tabindex="0" onclick="openWeek('week4.html')" onkeydown="keyNav(event,'week4.html')" aria-label="Week 4 - Viewing & Presentation">
+      <div class="tile-left">
+        <div class="tile-icon">4</div>
+        <div>
+          <div class="tile-title">Week 4 — Viewing & Presentation</div>
+        </div>
+      </div>
+      <div class="chev">→</div>
+    </div>
+
+    <div class="tile" role="link" tabindex="0" onclick="openWeek('week5.html')" onkeydown="keyNav(event,'week5.html')" aria-label="Week 5 - Closing & Psychology">
+      <div class="tile-left">
+        <div class="tile-icon">5</div>
+        <div>
+          <div class="tile-title">Week 5 — Closing & Client Psychology</div>
+        </div>
+      </div>
+      <div class="chev">→</div>
+    </div>
+  </nav>
+</div>
+
+<div class="footer">© EzySales Academy — Visual Onboarding • Built for part-timers</div>
+
+<script>
+  function openWeek(url){
+    window.location.href = url;
+  }
+  function keyNav(e,url){
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      openWeek(url);
     }
-    function cardKey(e, url){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        navigate(url);
-      }
-    }
-    // TIP: If you want a more secure login (individual accounts) we can add Netlify Identity or Firebase later
-  </script>
+  }
+</script>
+
 </body>
 </html>
