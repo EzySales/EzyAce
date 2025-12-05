@@ -1,229 +1,166 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Login — EzySales Academy</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>EzySales Login — Neo Glass Edition</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --bg-1:#05060a;      /* deep near-black */
-    --glass:#0f1724cc;   /* card base */
-    --accent1:#ff3cac;   /* pink */
-    --accent2:#7b61ff;   /* purple */
-    --accent3:#2bd7ff;   /* cyan */
-    --muted:#9aa6b2;
-    --white: #e6eef7;
-    --radius:18px;
-  }
+/* ------ GLOBAL RESET ------ */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  height:100vh;
+  font-family:Inter, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#0b0d11;
+  overflow:hidden;
+  color:white;
+}
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-    background:linear-gradient(180deg,var(--bg-1) 0%, #08101a 60%);
-    color:var(--white);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:32px;
-  }
+/* ------ BACKGROUND GLOW BLOBS ------ */
+.blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:0.55;
+  z-index:-1;
+}
 
-  /* neon blobs behind */
-  .bg-blobs{
-    position:fixed;
-    inset:0;
-    z-index:-20;
-    pointer-events:none;
-    background:
-      radial-gradient(600px 300px at 85% 10%, rgba(123,97,255,0.22), transparent 20%),
-      radial-gradient(480px 260px at 12% 20%, rgba(255,60,172,0.18), transparent 16%),
-      radial-gradient(420px 220px at 70% 80%, rgba(43,215,255,0.12), transparent 12%);
-    filter: blur(36px) saturate(120%);
-    mix-blend-mode: screen;
-  }
+.blob1{
+  width:420px; height:420px;
+  background:#00c8ff;
+  top:-120px; left:-80px;
+}
 
-  /* subtle vignette */
-  .bg-vignette{
-    position:fixed;inset:0;z-index:-10;pointer-events:none;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.45) 100%);
-  }
+.blob2{
+  width:420px; height:420px;
+  background:#007bff;
+  bottom:-140px; right:-120px;
+}
 
-  /* container */
-  .wrap{
-    width:420px;
-    max-width:94vw;
-    text-align:left;
-  }
+.blob3{
+  width:350px; height:350px;
+  background:#ffe761;
+  top:50%; left:60%;
+  transform:translate(-50%, -50%);
+  opacity:0.28;
+  filter:blur(180px);
+}
 
-  .card{
-    border-radius:var(--radius);
-    padding:28px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    border:1px solid rgba(255,255,255,0.06);
-    box-shadow:
-      0 6px 30px rgba(2,6,23,0.6),
-      inset 0 1px 0 rgba(255,255,255,0.02);
-    backdrop-filter: blur(10px) saturate(120%);
-    -webkit-backdrop-filter: blur(10px) saturate(120%);
-    position:relative;
-    overflow:hidden;
-  }
+/* ------ GLASS LOGIN CARD ------ */
+.card{
+  width:350px;
+  padding:34px 26px;
+  border-radius:22px;
 
-  /* accent rim */
-  .card::before{
-    content:'';
-    position:absolute;left:-60px;top:-60px;width:240px;height:240px;
-    background:linear-gradient(135deg,var(--accent1),var(--accent2));
-    filter:blur(40px);
-    opacity:0.55;
-    transform:rotate(18deg);
-    pointer-events:none;
-  }
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
 
-  .brand{
-    display:flex;align-items:center;gap:12px;margin-bottom:18px;
-  }
-  .logo{
-    width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent1));
-    display:flex;align-items:center;justify-content:center;font-weight:700;color:white;box-shadow:0 8px 24px rgba(123,97,255,0.18);
-  }
-  .brand h3{margin:0;font-size:16px}
-  .brand p{margin:0;color:var(--muted);font-size:13px}
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 0 25px rgba(0, 204, 255, 0.25),
+    0 12px 35px rgba(0,0,0,0.35);
 
-  h2{font-size:22px;margin:6px 0 4px 0;color:var(--white)}
-  .lead{color:var(--muted);font-size:13px;margin-bottom:18px}
+  text-align:center;
+}
 
-  input{
-    width:100%;
-    padding:12px 14px;
-    margin-bottom:12px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,0.06);
-    background: rgba(8,12,18,0.35);
-    color:var(--white);
-    font-size:15px;
-    outline:none;
-    transition:box-shadow .15s, border-color .12s;
-  }
-  input:focus{
-    box-shadow:0 6px 18px rgba(43,215,255,0.08);
-    border-color: rgba(43,215,255,0.28);
-  }
+.card h2{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:6px;
+}
 
-  .actions{display:flex;gap:12px;align-items:center;margin-top:6px}
-  button{
-    padding:12px 16px;border-radius:10px;border:none;font-weight:700;font-size:15px;
-    background:linear-gradient(90deg,var(--accent1),var(--accent2));
-    color:white;cursor:pointer;box-shadow: 0 8px 24px rgba(37,99,235,0.14);
-  }
-  .btn-ghost{
-    padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);
-    background:transparent;color:var(--muted);cursor:pointer;font-weight:600;
-  }
+.card p{
+  font-size:14px;
+  color:#c9d4e2;
+  margin-bottom:22px;
+}
 
-  #error{
-    margin-top:12px;color:#ff6b6b;background:rgba(255,107,107,0.06);padding:8px;border-radius:8px;font-size:13px;display:none;
-  }
+/* ------ INPUT FIELDS ------ */
+input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.07);
+  color:white;
+  margin-bottom:14px;
+  font-size:15px;
+}
 
-  .help{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+input::placeholder{
+  color:#9aa5b5;
+}
 
-  /* small screens */
-  @media(max-width:480px){
-    .card{padding:18px}
-    .brand h3{font-size:15px}
-  }
+/* ------ LOGIN BUTTON ------ */
+button{
+  width:100%;
+  padding:14px;
+  background:linear-gradient(135deg,#009dff,#00eaff);
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:700;
+  color:#00141f;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,213,255,0.35);
+}
+
+/* ------ ERROR MESSAGE ------ */
+#error{
+  margin-top:12px;
+  font-size:14px;
+  color:#ff4d4d;
+  display:none;
+}
 </style>
 </head>
+
 <body>
 
-  <!-- visuals -->
-  <div class="bg-blobs" aria-hidden="true"></div>
-  <div class="bg-vignette" aria-hidden="true"></div>
+<!-- Glow Blobs -->
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
-  <div class="wrap" role="main" aria-label="EzySales login">
-    <div class="card" role="form" aria-labelledby="login-title">
-      <div class="brand">
-        <div class="logo" aria-hidden>EA</div>
-        <div>
-          <h3>EzySales Academy</h3>
-          <p>Team access — private training</p>
-        </div>
-      </div>
+<!-- Login Card -->
+<div class="card">
 
-      <h2 id="login-title">Team Login</h2>
-      <div class="lead">Enter your credentials to access the training platform.</div>
+  <h2>EzySales Login</h2>
+  <p>Welcome back. Enter your credentials.</p>
 
-      <input id="username" type="text" placeholder="Username" autocomplete="username" aria-label="Username">
-      <input id="password" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+  <input id="user" type="text" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
 
-      <div class="actions">
-        <button id="btnLogin">Sign in</button>
-        <button class="btn-ghost" id="btnDemo" title="Auto-fill demo credentials">Demo</button>
-      </div>
+  <button onclick="login()">Login</button>
 
-      <div id="error" role="alert">Incorrect username or password.</div>
+  <div id="error">Incorrect username or password.</div>
 
-      <div class="help">Contact your team leader if you don't have credentials.</div>
-    </div>
-  </div>
+</div>
 
 <script>
-  // if already logged in — go straight to index
-  if (sessionStorage.getItem("ezyLogin") === "true") {
+function login(){
+  const u = document.getElementById("user").value.trim();
+  const p = document.getElementById("pass").value.trim();
+
+  if(u === "ezy2025" && p === "imgreat"){
+    sessionStorage.setItem("ezyLogin","true");
     window.location.href = "index.html";
+  } else {
+    document.getElementById("error").style.display = "block";
   }
-
-  // credentials (set by you)
-  const VALID_USER = "ezy2025";
-  const VALID_PASS = "imgreat";
-
-  const user = document.getElementById("username");
-  const pass = document.getElementById("password");
-  const btn = document.getElementById("btnLogin");
-  const err = document.getElementById("error");
-  const demo = document.getElementById("btnDemo");
-
-  // demo autofill
-  demo.addEventListener("click", () => {
-    user.value = VALID_USER;
-    pass.value = VALID_PASS;
-    user.focus();
-  });
-
-  // allow enter key
-  [user, pass].forEach(el=>{
-    el.addEventListener("keydown", (e)=>{
-      if(e.key === "Enter") btn.click();
-    });
-  });
-
-  btn.addEventListener("click", ()=>{
-    err.style.display = "none";
-    const u = user.value.trim();
-    const p = pass.value.trim();
-
-    if(u === VALID_USER && p === VALID_PASS){
-      // set session and redirect
-      sessionStorage.setItem("ezyLogin","true");
-      // small success pulse + redirect
-      btn.disabled = true;
-      btn.style.opacity = "0.9";
-      setTimeout(()=> window.location.href = "index.html", 300);
-    } else {
-      err.style.display = "block";
-      // subtle shake
-      document.querySelector('.card').animate([
-        { transform: 'translateX(0)' },
-        { transform: 'translateX(-6px)' },
-        { transform: 'translateX(6px)' },
-        { transform: 'translateX(0)' }
-      ], { duration: 260 });
-    }
-  });
+}
 </script>
 
 </body>
