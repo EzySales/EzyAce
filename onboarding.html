@@ -1,217 +1,190 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Onboarding — EzySales Academy</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Onboarding — EzySales Academy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg-dark:#0b0d11;
-  --accent-1:#00c8ff;
-  --accent-2:#007bff;
-  --glass: rgba(255,255,255,0.04);
-  --glass-strong: rgba(255,255,255,0.07);
-  --glass-border: rgba(255,255,255,0.08);
-  --muted: #9fb2c9;
-  --tile-radius:18px;
-  --tile-height:120px; /* V2 large tiles */
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: radial-gradient(circle at 20% 30%, #0077ff33, #000814 70%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-/* Base reset */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  background:var(--bg-dark);
-  color: #e8f5ff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.4;
-  padding-bottom:48px;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+    }
 
-/* ---------- PROTECTION: redirect if not logged in ---------- */
-</style>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg,#00aaff,#0066ff);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .logout {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .logout:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Hero Card */
+    .hero {
+      max-width: 700px;
+      margin: 60px auto 40px auto;
+      text-align: center;
+      padding: 40px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px 0;
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 0 0 20px 0;
+      opacity: 0.8;
+    }
+
+    /* Tile Grid */
+    .grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      padding: 20px;
+    }
+
+    @media(max-width: 800px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 560px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tile {
+      padding: 30px 20px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .tile:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-bottom: 40px;
+      opacity: 0.5;
+      font-size: 13px;
+    }
+  </style>
+
+  <script>
+    // LOGIN LOCK
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+
+    function openWeek(week) {
+      alert("Week " + week + " page coming soon!");
+    }
+
+    function signOut() {
+      sessionStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+
 </head>
+
 <body>
-<script>
-  // protection guard: redirect to login if not authenticated
-  if (sessionStorage.getItem("ezyLogin") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
 
-<style>
-/* Background glow layers */
-.bg-wrap{position:fixed;inset:0;z-index:-20;pointer-events:none}
-.blob{position:fixed;border-radius:50%;filter:blur(120px);opacity:0.55;mix-blend-mode:screen}
-.blob-a{width:700px;height:700px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));left:-260px;top:-220px}
-.blob-b{width:620px;height:620px;background:linear-gradient(135deg,var(--accent-2),#00f0ff);right:-200px;bottom:-200px}
-.overlay-noise{position:fixed;inset:0;background:
-  radial-gradient(circle at 10% 20%, rgba(255,255,255,0.01), transparent 8%),
-  radial-gradient(circle at 90% 80%, rgba(255,255,255,0.008), transparent 6%);
-  z-index:-18;opacity:0.35;mix-blend-mode:overlay}
-
-/* Container */
-.container{max-width:900px;margin:20px auto;padding:0 20px}
-
-/* Header/nav */
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#02131d}
-.brand-title{font-weight:700;font-size:18px}
-.brand-sub{font-size:12px;color:var(--muted)}
-.signout{padding:8px 12px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:#dff6ff;text-decoration:none;font-weight:700}
-
-/* Page title */
-.title-wrap{margin:8px 0 22px}
-h1{font-size:28px;margin-bottom:6px}
-.lead{color:var(--muted);font-size:15px;max-width:780px}
-
-/* Tiles area — vertical layout */
-.tiles{display:flex;flex-direction:column;gap:18px;margin-top:22px}
-
-/* Tile style (large V2) */
-.tile{
-  height:var(--tile-height);
-  border-radius:var(--tile-radius);
-  padding:20px 26px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border:1px solid var(--glass-border);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  box-shadow:0 20px 50px rgba(0,0,0,0.45);
-  cursor:pointer;
-  transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
-}
-.tile:hover{transform:translateY(-10px);box-shadow:0 36px 90px rgba(0,0,0,0.64), 0 0 30px rgba(0,200,255,0.06)}
-.tile:active{transform:translateY(-4px)}
-.tile:focus{outline:3px solid rgba(0,200,255,0.12);transform:translateY(-8px)}
-
-.tile-left{display:flex;gap:14px;align-items:center}
-.tile-icon{
-  width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.04);
-  font-size:28px;
-  color:var(--accent-1);
-  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.25);
-}
-.tile-title{font-weight:800;font-size:18px;color:#eaf8ff}
-.tile-sub{font-size:13px;color:var(--muted);margin-top:6px}
-
-/* right chevron */
-.chev{font-weight:800;color:var(--accent-1)}
-
-/* footer */
-.footer{max-width:900px;margin:36px auto 80px;text-align:center;color:var(--muted);font-size:13px}
-
-/* responsive adjustments */
-@media(max-width:720px){
-  .tile{height:110px;padding:16px}
-  .tile-icon{width:60px;height:60px;font-size:24px}
-  h1{font-size:24px}
-  .container{padding:0 14px}
-}
-</style>
-
-<!-- Background glow -->
-<div class="bg-wrap" aria-hidden="true">
-  <div class="blob blob-a"></div>
-  <div class="blob blob-b"></div>
-  <div class="blob-c" style="display:none;"></div>
-  <div class="overlay-noise"></div>
-</div>
-
-<div class="container" role="main">
-  <header class="header" role="banner">
+  <!-- NAV -->
+  <header class="nav">
     <div class="brand">
-      <div class="logo" aria-hidden>EA</div>
-      <div>
-        <div class="brand-title">EzySales Academy</div>
-        <div class="brand-sub">Onboarding • Weekly visual modules</div>
-      </div>
+      <div class="logo">EA</div>
+      EzySales Academy
     </div>
-    <a class="signout" href="login.html" aria-label="Sign out">Sign out</a>
+
+    <a class="logout" onclick="signOut()">Sign out</a>
   </header>
 
-  <div class="title-wrap">
-    <h1>Onboarding — Weekly Path</h1>
-    <div class="lead">Part-timers friendly: each week is a clear module you can complete in your own time. Open a week to view mind maps, slides, images and tasks.</div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Onboarding Program</h1>
+    <p>Your structured 5-week Real Estate mastery journey begins here.</p>
+  </section>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <div class="tile" onclick="openWeek(1)">Week 1</div>
+    <div class="tile" onclick="openWeek(2)">Week 2</div>
+    <div class="tile" onclick="openWeek(3)">Week 3</div>
+    <div class="tile" onclick="openWeek(4)">Week 4</div>
+    <div class="tile" onclick="openWeek(5)">Week 5</div>
+
   </div>
 
-  <nav class="tiles" aria-label="Onboarding weeks">
-    <div class="tile" role="link" tabindex="0" onclick="openWeek('week1.html')" onkeydown="keyNav(event,'week1.html')" aria-label="Week 1 - Business Setup">
-      <div class="tile-left">
-        <div class="tile-icon">1</div>
-        <div>
-          <div class="tile-title">Week 1 — Business Setup & Branding</div>
-        </div>
-      </div>
-      <div class="chev">→</div>
-    </div>
-
-    <div class="tile" role="link" tabindex="0" onclick="openWeek('week2.html')" onkeydown="keyNav(event,'week2.html')" aria-label="Week 2 - Projects & Listing">
-      <div class="tile-left">
-        <div class="tile-icon">2</div>
-        <div>
-          <div class="tile-title">Week 2 — Projects & Listing Skills</div>
-        </div>
-      </div>
-      <div class="chev">→</div>
-    </div>
-
-    <div class="tile" role="link" tabindex="0" onclick="openWeek('week3.html')" onkeydown="keyNav(event,'week3.html')" aria-label="Week 3 - Lead Handling">
-      <div class="tile-left">
-        <div class="tile-icon">3</div>
-        <div>
-          <div class="tile-title">Week 3 — Lead Generation & Follow-up</div>
-        </div>
-      </div>
-      <div class="chev">→</div>
-    </div>
-
-    <div class="tile" role="link" tabindex="0" onclick="openWeek('week4.html')" onkeydown="keyNav(event,'week4.html')" aria-label="Week 4 - Viewing & Presentation">
-      <div class="tile-left">
-        <div class="tile-icon">4</div>
-        <div>
-          <div class="tile-title">Week 4 — Viewing & Presentation</div>
-        </div>
-      </div>
-      <div class="chev">→</div>
-    </div>
-
-    <div class="tile" role="link" tabindex="0" onclick="openWeek('week5.html')" onkeydown="keyNav(event,'week5.html')" aria-label="Week 5 - Closing & Psychology">
-      <div class="tile-left">
-        <div class="tile-icon">5</div>
-        <div>
-          <div class="tile-title">Week 5 — Closing & Client Psychology</div>
-        </div>
-      </div>
-      <div class="chev">→</div>
-    </div>
-  </nav>
-</div>
-
-<div class="footer">© EzySales Academy — Visual Onboarding • Built for part-timers</div>
-
-<script>
-  function openWeek(url){
-    window.location.href = url;
-  }
-  function keyNav(e,url){
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      openWeek(url);
-    }
-  }
-</script>
+  <footer>
+    © EzySales Academy — Onboarding Program
+  </footer>
 
 </body>
 </html>
