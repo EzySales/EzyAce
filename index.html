@@ -119,41 +119,47 @@ body{
 </style>
 
 <main class="hero-wrap" role="main">
-  <section class="hero">
-    <div class="glass-hero" role="region" aria-labelledby="hero-title">
-      <h1 id="hero-title">EzySales Academy — Train like a team, lead like a pro</h1>
-      <p>Private training for dedicated RENs. Focused modules, step-by-step onboarding, and playbooks to close consistently.</p>
-      <a class="hero-cta" href="onboarding.html">Start Onboarding</a>
-    </div>
-
-    <div class="hero-badge" aria-hidden="true">
-      <!-- stylized badge / emblem -->
-      <div style="text-align:center">
-        <div style="font-weight:800;color:var(--accent-1);font-size:20px">EzySales</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:6px">Academy</div>
-      </div>
+  <section class="hero hero-center">
+    <div class="glass-hero hero-center-box" role="region" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero-title-center">EzySales Academy</h1>
+      <p class="hero-subtitle-center">Train like a team, lead like a pro</p>
+      <a class="hero-cta hero-cta-center" href="onboarding.html">Start Onboarding</a>
     </div>
   </section>
 </main>
 
+
 <!-- MODULE GRID: floating vision-pro tiles -->
 <style>
-.section{max-width:1200px;margin:18px auto 60px;padding:0 22px}
-.section h2{color:#eaf6ff;font-size:20px;margin-bottom:14px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tile{
-  border-radius:18px;padding:22px;min-height:140px;cursor:pointer;
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.06);
-  backdrop-filter:blur(18px);box-shadow: 0 18px 40px rgba(2,10,20,0.45);
-  transition:transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
-  color:#e9f7ff;
-  display:flex;flex-direction:column;justify-content:space-between;
+.hero {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-.tile:hover{transform:translateY(-12px);box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 30px rgba(0,200,255,0.08)}
-.tile h3{font-size:18px;margin:0 0 8px;color:var(--accent-1)}
-.tile p{color:var(--muted);margin:0;font-size:14px}
-.tile .tag{font-weight:700;color:#dff8ff;font-size:13px;margin-top:12px}
+
+.hero-center-box {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-title-center {
+  font-size: 40px;
+  font-weight: 800;
+  color: #eaf6ff;
+}
+
+.hero-subtitle-center {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.hero-cta-center {
+  display: inline-block;
+  margin-top: 10px;
+}
+
 </style>
 
 <section class="section" aria-labelledby="modules-title">
