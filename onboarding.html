@@ -11,9 +11,9 @@
 body {
   margin: 0;
   font-family: Inter, sans-serif;
-  background: radial-gradient(circle at 20% 30%, #0077ff33, #000814 70%);
+  background: radial-gradient(circle at 40% 20%, #0f4066AA, #02101f 70%);
   min-height: 100vh;
-  color: #fff;
+  color: #e8f6ff;
   overflow-x: hidden;
 }
 
@@ -23,6 +23,7 @@ body {
   justify-content: space-between;
   padding: 18px 28px;
   align-items: center;
+  color: white;
 }
 
 .logo {
@@ -49,67 +50,75 @@ body {
 
 /* HERO */
 .hero {
-  max-width: 720px;
-  margin: 40px auto;
-  padding: 35px 30px;
+  max-width: 680px;
+  margin: 40px auto 28px auto;
+  padding: 35px;
   border-radius: 18px;
   text-align: center;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
 }
 
 .hero h1 {
-  margin-bottom: 10px;
-  font-size: 34px;
+  margin-bottom: 8px;
+  font-size: 32px;
   font-weight: 700;
 }
 
-/* WEEK BUTTONS */
+.hero p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* WEEK BUTTON */
 .week-btn {
-  width: 260px;
-  margin: 12px auto;
-  padding: 16px;
+  width: 240px;
+  margin: 18px auto;
+  padding: 15px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: 0.25s;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: 0.25s ease;
 }
 
 .week-btn:hover {
   transform: translateY(-4px);
-  background: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.13);
 }
 
-/* CONTENT BOX (hidden by default) */
+/* CONTENT BOX */
 .content {
-  max-width: 700px;
-  margin: 10px auto;
-  padding: 20px 24px;
+  max-width: 680px;
+  margin: 0 auto 20px auto;
+  padding: 24px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+
   display: none;
-  animation: slideDown 0.4s ease;
+  animation: fadeIn 0.35s ease;
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .item {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .item:last-child {
@@ -117,15 +126,14 @@ body {
 }
 
 .item-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
-  color: #00c8ff;
+  color: #4ecbff;
 }
 
 .item-desc {
-  opacity: 0.8;
   font-size: 14px;
+  opacity: 0.75;
 }
 </style>
 
@@ -162,65 +170,67 @@ function signOut() {
   <p>Your structured 5-week Real Estate mastery journey begins here.</p>
 </section>
 
-<!-- WEEK BUTTONS + CONTENT -->
+<!-- WEEK 1 -->
 <div class="week-btn" onclick="toggleWeek('w1')">Week 1 – Foundations</div>
 <div id="w1" class="content">
   <div class="item"><div class="item-title">✓ Get Your Business Number</div>
-  <div class="item-desc">Build trust with clients using a professional number.</div></div>
+  <div class="item-desc">Build trust using a dedicated business number.</div></div>
 
   <div class="item"><div class="item-title">✓ Install WhatsApp Business</div>
-  <div class="item-desc">Set quick replies, labels, catalog, profile photo & more.</div></div>
+  <div class="item-desc">Set quick replies, labels, catalog & working hours.</div></div>
 
   <div class="item"><div class="item-title">✓ Prepare Social Media</div>
-  <div class="item-desc">Optimise Facebook, TikTok, Instagram for buyer attraction.</div></div>
+  <div class="item-desc">Clean up profiles & make them buyer-friendly.</div></div>
 
   <div class="item"><div class="item-title">✓ AI Professional Photo</div>
-  <div class="item-desc">Use AI to generate a clean, sharp, agent-style headshot.</div></div>
+  <div class="item-desc">Use AI headshot generator for a professional look.</div></div>
 
   <div class="item"><div class="item-title">✓ Create Google Form</div>
-  <div class="item-desc">Capture buyer requirements & budget instantly.</div></div>
+  <div class="item-desc">Capture buyer needs & budget instantly.</div></div>
 </div>
 
+<!-- WEEK 2 -->
 <div class="week-btn" onclick="toggleWeek('w2')">Week 2 – Projects & Copywriting</div>
 <div id="w2" class="content">
   <div class="item"><div class="item-title">✓ Learn Projects</div>
-  <div class="item-desc">Master key info: pricing, layouts, loan eligibility.</div></div>
+  <div class="item-desc">Understand pricing, layouts, loan calculations.</div></div>
 
-  <div class="item"><div class="item-title">✓ Posting & Sharing</div>
-  <div class="item-desc">Daily simple posting system to attract leads.</div></div>
+  <div class="item"><div class="item-title">✓ Posting Strategy</div>
+  <div class="item-desc">Daily posting routine to attract buyers.</div></div>
 
-  <div class="item"><div class="item-title">✓ Copywriting</div>
-  <div class="item-desc">Learn simple but powerful property copywriting formulas.</div></div>
+  <div class="item"><div class="item-title">✓ Copywriting Basics</div>
+  <div class="item-desc">Simple structures to write sales-driven captions.</div></div>
 </div>
 
+<!-- WEEK 3 -->
 <div class="week-btn" onclick="toggleWeek('w3')">Week 3 – Leads & Follow Up</div>
 <div id="w3" class="content">
   <div class="item"><div class="item-title">✓ Follow Up System</div>
-  <div class="item-desc">How to manage leads, message templates & timing.</div></div>
+  <div class="item-desc">When to message, what to say, how to track.</div></div>
 
   <div class="item"><div class="item-title">✓ Finding Buyers</div>
-  <div class="item-desc">Best ways to hunt buyers fast with low cost.</div></div>
+  <div class="item-desc">Best low-cost buyer sourcing techniques.</div></div>
 </div>
 
-<div class="week-btn" onclick="toggleWeek('w4')">Week 4 – Appointment & Presentation</div>
+<!-- WEEK 4 -->
+<div class="week-btn" onclick="toggleWeek('w4')">Week 4 – Appointments & Presentation</div>
 <div id="w4" class="content">
   <div class="item"><div class="item-title">✓ Appointment Skills</div>
-  <div class="item-desc">How to talk, build trust, and control the meeting.</div></div>
+  <div class="item-desc">How to talk, build trust & qualify clients.</div></div>
 
-  <div class="item"><div class="item-title">✓ Presenting Projects & Subsales</div>
-  <div class="item-desc">Clear frameworks to present like a pro.</div></div>
+  <div class="item"><div class="item-title">✓ Presentation Skills</div>
+  <div class="item-desc">Project & subsale pitch frameworks.</div></div>
 </div>
 
+<!-- WEEK 5 -->
 <div class="week-btn" onclick="toggleWeek('w5')">Week 5 – Closing Skills</div>
 <div id="w5" class="content">
   <div class="item"><div class="item-title">✓ Closing Techniques</div>
-  <div class="item-desc">Learn how to handle objections & secure commitment.</div></div>
+  <div class="item-desc">Handle objections & secure commitments.</div></div>
 
   <div class="item"><div class="item-title">✓ Buyer Behaviour</div>
-  <div class="item-desc">Understand 300k buyers vs 500k buyers mindset.</div></div>
+  <div class="item-desc">300k vs 500k buyer mindset differences.</div></div>
 </div>
-
-<br><br>
 
 </body>
 </html>
