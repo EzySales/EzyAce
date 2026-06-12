@@ -1,1 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculators - EzySales Academy</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:#0b0d11;
+  color:white;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px;
+}
+
+h1{
+  margin-bottom:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:20px;
+}
+
+input,select{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:none;
+  border-radius:10px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  background:#00c8ff;
+}
+
+.result{
+  margin-top:15px;
+  font-size:16px;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧮 EzySales Calculators</h1>
+
+<div class="grid">
+
+<!-- LOAN -->
+<div class="card">
+<h2>🏠 Loan Calculator</h2>
+
+<input id="loanPrice" type="number" placeholder="Property Price">
+<input id="loanRate" type="number" placeholder="Interest Rate (%)">
+<input id="loanYears" type="number" placeholder="Loan Tenure (Years)">
+
+<button onclick="calcLoan()">Calculate</button>
+
+<div class="result" id="loanResult"></div>
+</div>
+
+<!-- DSR -->
+<div class="card">
+<h2>📊 DSR Calculator</h2>
+
+<input id="salary" type="number" placeholder="Monthly Income">
+<input id="commitment" type="number" placeholder="Monthly Commitments">
+
+<button onclick="calcDSR()">Calculate</button>
+
+<div class="result" id="dsrResult"></div>
+</div>
+
+<!-- COMMISSION -->
+<div class="card">
+<h2>💰 Commission Calculator</h2>
+
+<input id="sellPrice" type="number" placeholder="Selling Price">
+<input id="commPercent" type="number" placeholder="Commission %">
+
+<button onclick="calcCommission()">Calculate</button>
+
+<div class="result" id="commResult"></div>
+</div>
+
+<!-- SELLER COST -->
+<div class="card">
+<h2>🏡 Seller Cost Calculator</h2>
+
+<input id="sellerPrice" type="number" placeholder="Selling Price">
+
+<select id="lawyerType">
+<option value="own">Own Lawyer</option>
+<option value="buyer">Buyer Lawyer</option>
+</select>
+
+<button onclick="calcSeller()">Calculate</button>
+
+<div class="result" id="sellerResult"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function money(x){
+ return "RM " + Number(x).toLocaleString('en-MY',{minimumFractionDigits:2});
+}
+
+function calcLoan(){
+
+ let price = parseFloat(document.getElementById('loanPrice').value);
+ let rate = parseFloat(document.getElementById('loanRate').value)/100/12;
+ let months = parseFloat(document.getElementById('loanYears').value)*12;
+
+ let monthly =
+ (price*rate*Math.pow(1+rate,months)) /
+ (Math.pow(1+rate,months)-1);
+
+ document.getElementById('loanResult').innerHTML =
+ "Monthly Installment:<br><b>"+money(monthly)+"</b>";
+}
+
+function calcDSR(){
+
+ let salary = parseFloat(document.getElementById('salary').value);
+ let commitment = parseFloat(document.getElementById('commitment').value);
+
+ let dsr = (commitment/salary)*100;
+
+ document.getElementById('dsrResult').innerHTML =
+ "DSR: <b>"+dsr.toFixed(2)+"%</b>";
+}
+
+function calcCommission(){
+
+ let sell = parseFloat(document.getElementById('sellPrice').value);
+ let percent = parseFloat(document.getElementById('commPercent').value);
+
+ let commission = sell*(percent/100);
+
+ document.getElementById('commResult').innerHTML =
+ "Commission:<br><b>"+money(commission)+"</b>";
+}
+
+function calcSeller(){
+
+ let sell = parseFloat(document.getElementById('sellerPrice').value);
+ let lawyer = document.getElementById('lawyerType').value;
+
+ let lawyerFee = 0;
+ let disbursement = 0;
+
+ if(lawyer==="own"){
+   lawyerFee = sell * 0.01;
+   disbursement = sell * 0.005;
+ }else{
+   lawyerFee = sell * 0.0075;
+ }
+
+ let total = lawyerFee + disbursement;
+
+ document.getElementById('sellerResult').innerHTML =
+ "Lawyer Fee: "+money(lawyerFee)+"<br>" +
+ "Disbursement: "+money(disbursement)+"<br><br>" +
+ "<b>Total Cost: "+money(total)+"</b>";
+}
+
+</script>
+
+</body>
+</html>
