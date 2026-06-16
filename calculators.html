@@ -158,8 +158,11 @@ button{
 
 <h2>📊 DSR Calculator</h2>
 
-<input id="salary" type="number" placeholder="Monthly Income">
-<input id="commitment" type="number" placeholder="Monthly Commitments">
+<label>Monthly Income (RM)</label>
+<input id="salary" type="number" placeholder="e.g. 3000">
+
+<label>Existing Commitments (RM)</label>
+<input id="commitment" type="number" placeholder="e.g. 500">
 
 <button onclick="calcDSR()">Calculate</button>
 
@@ -292,7 +295,10 @@ function calcLoan(){
 
 }
   function calcDSR(){
-  
+
+ let income = parseFloat(document.getElementById('salary').value);
+ let commitment = parseFloat(document.getElementById('commitment').value);
+
  let dsr = (commitment / income) * 100;
 
  let maxCommitment = income * 0.65;
