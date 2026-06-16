@@ -131,9 +131,22 @@ button{
 
 <h2>🏠 Loan Calculator</h2>
 
+<select id="propertyType">
+  <option value="subsale">🏠 Subsale</option>
+  <option value="new">🏢 New Project</option>
+</select>
+
 <input id="loanPrice" type="number" placeholder="Property Price">
+
 <input id="loanRate" type="number" placeholder="Interest Rate (%)">
+
 <input id="loanYears" type="number" placeholder="Loan Tenure (Years)">
+
+<select id="loanMargin">
+  <option value="90">90% Loan Margin</option>
+  <option value="95">95% Loan Margin</option>
+  <option value="100">100% Loan Margin</option>
+</select>
 
 <button onclick="calcLoan()">Calculate</button>
 
@@ -193,14 +206,104 @@ function calcLoan(){
  "Monthly Installment:<br><b>"+money(monthly)+"</b>";
 }
 
-function calcDSR(){
+function calcLoan(){
 
- let income = parseFloat(document.getElementById('salary').value);
- let commitment = parseFloat(document.getElementById('commitment').value);
+ let price = parseFloat(document.getElementById('loanPrice').value);
+ let rate = parseFloat(document.getElementById('loanRate').value)/100/12;
+ let years = parseFloat(document.getElementById('loanYears').value);
 
- if(!income || income <= 0){
-   return;
+ let propertyType = document.getElementById('propertyType').value;
+ let margin = parseFloat(document.getElementById('loanMargin').value);
+
+ let loanAmount = price * (margin/100);
+ let downpayment = price - loanAmount;
+
+ let months = years * 12;
+
+ let monthly =
+ (loanAmount * rate * Math.pow(1+rate,months)) /
+ (Math.pow(1+rate,months)-1);
+
+ let lawyerFee = "";
+ let valuationFee = "";
+
+ if(price <= 200000){
+   lawyerFee = "RM20,000";
  }
+ else if(price <= 400000){
+   lawyerFee = "RM25,000";
+ }
+ else if(price <= 500000){
+   lawyerFee = "RM25,000 - RM30,000";
+ }
+ else{
+   lawyerFee = "RM40,000+";
+ }
+
+ if(price <= 300000){
+   valuationFee = "RM1,500 - RM2,000";
+ }
+ else{
+   valuationFee = "RM2,000 - RM3,000";
+ }
+
+ let result = `
+ <b>Monthly Installment:</b><br>
+ ${money(monthly)}
+
+ <br><br>
+
+ <b>Loan Amount:</b><br>
+ ${money(loanAmount)}
+
+ <br><br>
+
+ <b>Downpayment:</b><br>
+ ${money(downpayment)}
+ `;
+
+ if(propertyType === "subsale"){
+
+   result += `
+
+   <br><br>
+
+   <b>Lawyer Fee Estimate:</b><br>
+   ${lawyerFee}
+
+   <br><br>
+
+   <b>Valuation Fee Estimate:</b><br>
+   ${valuationFee}
+
+   <br><br>
+
+   ⚠ Subject to CCRIS, CTOS & bank approval.
+   `;
+ }
+ else{
+
+   result += `
+
+   <br><br>
+
+   <b>SPA Legal Fee:</b><br>
+   ABSORBED BY DEVELOPER ✅
+
+   <br><br>
+
+   <b>Valuation Fee:</b><br>
+   ABSORBED ✅
+
+   <br><br>
+
+   ⚠ Subject to CCRIS, CTOS & bank approval.
+   `;
+ }
+
+ document.getElementById('loanResult').innerHTML = result;
+
+}
 
  let dsr = (commitment / income) * 100;
 
