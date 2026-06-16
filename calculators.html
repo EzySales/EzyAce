@@ -195,13 +195,67 @@ function calcLoan(){
 
 function calcDSR(){
 
- let salary = parseFloat(document.getElementById('salary').value);
+ let income = parseFloat(document.getElementById('salary').value);
  let commitment = parseFloat(document.getElementById('commitment').value);
 
- let dsr = (commitment/salary)*100;
+ if(!income || income <= 0){
+   return;
+ }
 
- document.getElementById('dsrResult').innerHTML =
- "DSR: <b>"+dsr.toFixed(2)+"%</b>";
+ let dsr = (commitment / income) * 100;
+
+ let maxCommitment = income * 0.65;
+ let availableRepayment = maxCommitment - commitment;
+
+ let lowPrice = availableRepayment * 180;
+ let highPrice = availableRepayment * 220;
+
+ let status = "";
+ let color = "";
+
+ if(dsr <= 30){
+   status = "Excellent Eligibility";
+   color = "#00c853";
+ }
+ else if(dsr <= 50){
+   status = "Good Eligibility";
+   color = "#43a047";
+ }
+ else if(dsr <= 70){
+   status = "Moderate Eligibility";
+   color = "#fb8c00";
+ }
+ else{
+   status = "High Risk";
+   color = "#e53935";
+ }
+
+ document.getElementById('dsrResult').innerHTML = `
+   <div style="
+      background:${color};
+      padding:15px;
+      border-radius:12px;
+      margin-top:15px;
+      color:white;
+      font-weight:700;
+   ">
+      ${status}
+   </div>
+
+   <br>
+
+   <b>Current DSR:</b> ${dsr.toFixed(2)}%
+
+   <br><br>
+
+   <b>Max Monthly Repayment Allowed:</b><br>
+   ${money(availableRepayment)}
+
+   <br><br>
+
+   <b>Estimated Property Price You Can Buy:</b><br>
+   ${money(lowPrice)} - ${money(highPrice)}
+ `;
 }
 
 function calcCommission(){
