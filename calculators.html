@@ -71,9 +71,17 @@ button{
 <h1>🧮 EzySales Calculators</h1>
 
 <div class="grid">
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
 
-<!-- LOAN -->
-<div class="card">
+<button onclick="showTab('loan')">🏠 Home Loan</button>
+<button onclick="showTab('dsr')">📊 DSR</button>
+<button onclick="showTab('commission')">💰 Commission</button>
+<button onclick="showTab('seller')">🏡 Seller Cost</button>
+
+</div>
+
+<div id="loan" class="card">
+
 <h2>🏠 Loan Calculator</h2>
 
 <input id="loanPrice" type="number" placeholder="Property Price">
@@ -83,10 +91,11 @@ button{
 <button onclick="calcLoan()">Calculate</button>
 
 <div class="result" id="loanResult"></div>
+
 </div>
 
-<!-- DSR -->
-<div class="card">
+<div id="dsr" class="card" style="display:none">
+
 <h2>📊 DSR Calculator</h2>
 
 <input id="salary" type="number" placeholder="Monthly Income">
@@ -95,10 +104,11 @@ button{
 <button onclick="calcDSR()">Calculate</button>
 
 <div class="result" id="dsrResult"></div>
+
 </div>
 
-<!-- COMMISSION -->
-<div class="card">
+<div id="commission" class="card" style="display:none">
+
 <h2>💰 Commission Calculator</h2>
 
 <input id="sellPrice" type="number" placeholder="Selling Price">
@@ -107,10 +117,11 @@ button{
 <button onclick="calcCommission()">Calculate</button>
 
 <div class="result" id="commResult"></div>
+
 </div>
 
-<!-- SELLER COST -->
-<div class="card">
+<div id="seller" class="card" style="display:none">
+
 <h2>🏡 Seller Cost Calculator</h2>
 
 <input id="sellerPrice" type="number" placeholder="Selling Price">
@@ -123,7 +134,9 @@ button{
 <button onclick="calcSeller()">Calculate</button>
 
 <div class="result" id="sellerResult"></div>
+
 </div>
+
 
 </div>
 </div>
@@ -193,6 +206,17 @@ function calcSeller(){
  "<b>Total Cost: "+money(total)+"</b>";
 }
 
+function showTab(tab){
+
+document.getElementById('loan').style.display='none';
+document.getElementById('dsr').style.display='none';
+document.getElementById('commission').style.display='none';
+document.getElementById('seller').style.display='none';
+
+document.getElementById(tab).style.display='block';
+
+}
+  
 </script>
 
 </body>
