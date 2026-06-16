@@ -192,19 +192,6 @@ function money(x){
  return "RM " + Number(x).toLocaleString('en-MY',{minimumFractionDigits:2});
 }
 
-function calcLoan(){
-
- let price = parseFloat(document.getElementById('loanPrice').value);
- let rate = parseFloat(document.getElementById('loanRate').value)/100/12;
- let months = parseFloat(document.getElementById('loanYears').value)*12;
-
- let monthly =
- (price*rate*Math.pow(1+rate,months)) /
- (Math.pow(1+rate,months)-1);
-
- document.getElementById('loanResult').innerHTML =
- "Monthly Installment:<br><b>"+money(monthly)+"</b>";
-}
 
 function calcLoan(){
 
