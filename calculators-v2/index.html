@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>EzySales Calculators</title>
+<title>EzySales Calculator Suite</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,211 +21,177 @@
 
 <div class="container">
 
-    <h1>🧮 EzySales Calculators</h1>
+<div class="hero">
 
-    <div class="tab-buttons">
+<div class="hero-icon">🧮</div>
 
-        <button class="tab active" onclick="showTab('dsr')">
-            📊 DSR
-        </button>
+<h1>EzySales Calculator Suite</h1>
 
-        <button class="tab" onclick="showTab('loan')">
-            🏠 Home Loan
-        </button>
-
-        <button class="tab" onclick="showTab('roi')">
-            📈 ROI
-        </button>
-
-        <button class="tab" onclick="showTab('seller')">
-            🏡 Seller
-        </button>
-
-    </div>
-
-
-    <!-- ================= DSR ================= -->
-
-    <div id="dsr" class="card">
-
-        <h2>📊 DSR Calculator</h2>
-
-        <label>Monthly Income (RM)</label>
-        <input
-            type="number"
-            id="salary"
-            placeholder="e.g. 5000">
-
-        <label>Existing Commitments (RM)</label>
-        <input
-            type="number"
-            id="commitment"
-            placeholder="e.g. 1200">
-
-        <button onclick="calcDSR()">
-            Calculate
-        </button>
-
-        <div id="dsrResult" class="result"></div>
-
-    </div>
-
-
-
-    <!-- ================= HOME LOAN ================= -->
-
-    <div id="loan" class="card hidden">
-
-        <h2>🏠 Home Loan Calculator</h2>
-
-        <label>Property Type</label>
-
-        <select id="propertyType">
-
-            <option value="subsale">
-                🏠 Subsale
-            </option>
-
-            <option value="new">
-                🏢 New Project
-            </option>
-
-        </select>
-
-
-        <label>Property Price (RM)</label>
-
-        <input
-            type="number"
-            id="loanPrice"
-            placeholder="e.g. 500000">
-
-
-        <label>Interest Rate (%)</label>
-
-        <input
-            type="number"
-            id="loanRate"
-            placeholder="e.g. 3.8">
-
-
-        <label>Loan Tenure (Years)</label>
-
-        <input
-            type="number"
-            id="loanYears"
-            placeholder="e.g. 35">
-
-
-        <label>Loan Margin</label>
-
-        <select id="loanMargin">
-
-            <option value="90">90%</option>
-            <option value="95">95%</option>
-            <option value="100">100%</option>
-
-        </select>
-
-        <button onclick="calcLoan()">
-            Calculate
-        </button>
-
-        <div id="loanResult" class="result"></div>
-
-    </div>
-
-
-
-    <!-- ================= ROI ================= -->
-
-    <div id="roi" class="card hidden">
-
-        <h2>📈 ROI Calculator</h2>
-
-        <label>House Price (RM)</label>
-        <input type="number" id="housePrice">
-
-        <label>Monthly Rental (RM)</label>
-        <input type="number" id="monthlyRent">
-
-        <label>Loan Instalment (RM)</label>
-        <input type="number" id="loanInstallment">
-
-        <label>Maintenance Fee (RM)</label>
-        <input type="number" id="maintenanceFee">
-
-        <label>Other Monthly Cost (RM)</label>
-        <input type="number" id="otherCost">
-
-        <button onclick="calcROI()">
-            Calculate
-        </button>
-
-        <div id="roiResult" class="result"></div>
-
-    </div>
-
-
-
-
-    <!-- ================= SELLER ================= -->
-
-    <div id="seller" class="card hidden">
-
-        <h2>🏡 Seller Cost Calculator</h2>
-
-        <label>Buying Price (RM)</label>
-        <input type="number" id="buyPrice">
-
-        <label>Selling Price (RM)</label>
-        <input type="number" id="sellPrice">
-
-        <label>Current Loan Balance (RM)</label>
-        <input type="number" id="loanBalance">
-
-        <label>Years Owned</label>
-
-        <select id="yearsOwned">
-
-            <option>Below 3 Years</option>
-            <option>4 Years</option>
-            <option>5 Years</option>
-            <option>More than 5 Years</option>
-
-        </select>
-
-        <label>Who Uses Lawyer?</label>
-
-        <select id="lawyerType">
-
-            <option>Buyer Lawyer</option>
-            <option>Own Lawyer</option>
-
-        </select>
-
-        <label>Bank Penalty (%)</label>
-
-        <input
-            type="number"
-            id="bankPenalty"
-            value="0.5">
-
-        <button onclick="calcSeller()">
-            Calculate
-        </button>
-
-        <div id="sellerResult" class="result"></div>
-
-    </div>
+<p>
+Professional Property Calculators for Real Estate Agents
+</p>
 
 </div>
 
+<div class="tab-buttons">
 
+<button class="tab active" onclick="showTab(event,'dsr')">
+📊 DSR
+</button>
+
+<button class="tab" onclick="showTab(event,'loan')">
+🏠 Loan
+</button>
+
+<button class="tab" onclick="showTab(event,'roi')">
+📈 ROI
+</button>
+
+<button class="tab" onclick="showTab(event,'seller')">
+🏡 Seller
+</button>
+
+</div>
+
+<!-- ================= DSR ================= -->
+
+<div id="dsr" class="card">
+
+<h2>📊 DSR Calculator</h2>
+
+<label>Monthly Income (RM)</label>
+<input id="salary" type="number" placeholder="5000">
+
+<label>Existing Commitments (RM)</label>
+<input id="commitment" type="number" placeholder="1200">
+
+<button onclick="calcDSR()">Calculate</button>
+
+<div id="dsrResult" class="result"></div>
+
+</div>
+
+<!-- ================= LOAN ================= -->
+
+<div id="loan" class="card hidden">
+
+<h2>🏠 Home Loan Calculator</h2>
+
+<label>Property Type</label>
+
+<select id="propertyType">
+
+<option value="subsale">🏠 Subsale</option>
+
+<option value="new">🏢 New Project</option>
+
+</select>
+
+<label>Property Price (RM)</label>
+
+<input id="loanPrice" type="number">
+
+<label>Interest Rate (%)</label>
+
+<input id="loanRate" type="number">
+
+<label>Loan Tenure (Years)</label>
+
+<input id="loanYears" type="number">
+
+<label>Loan Margin</label>
+
+<select id="loanMargin">
+
+<option value="90">90%</option>
+<option value="95">95%</option>
+<option value="100">100%</option>
+
+</select>
+
+<button onclick="calcLoan()">Calculate</button>
+
+<div id="loanResult" class="result"></div>
+
+</div>
+
+<!-- ================= ROI ================= -->
+
+<div id="roi" class="card hidden">
+
+<h2>📈 ROI Calculator</h2>
+
+<label>House Price</label>
+<input id="housePrice" type="number">
+
+<label>Monthly Rental</label>
+<input id="monthlyRent" type="number">
+
+<label>Loan Instalment</label>
+<input id="loanInstallment" type="number">
+
+<label>Maintenance Fee</label>
+<input id="maintenanceFee" type="number">
+
+<label>Other Monthly Cost</label>
+<input id="otherCost" type="number">
+
+<button onclick="calcROI()">Calculate</button>
+
+<div id="roiResult" class="result"></div>
+
+</div>
+
+<!-- ================= SELLER ================= -->
+
+<div id="seller" class="card hidden">
+
+<h2>🏡 Seller Cost Calculator</h2>
+
+<label>Buying Price</label>
+<input id="buyPrice" type="number">
+
+<label>Selling Price</label>
+<input id="sellPrice" type="number">
+
+<label>Current Loan Balance</label>
+<input id="loanBalance" type="number">
+
+<label>Years Owned</label>
+
+<select id="yearsOwned">
+
+<option>Below 3 Years</option>
+<option>4 Years</option>
+<option>5 Years</option>
+<option>More than 5 Years</option>
+
+</select>
+
+<label>Who Uses Lawyer?</label>
+
+<select id="lawyerType">
+
+<option>Buyer Lawyer</option>
+<option>Own Lawyer</option>
+
+</select>
+
+<label>Bank Penalty (%)</label>
+
+<input id="bankPenalty" type="number" value="0.5">
+
+<button onclick="calcSeller()">Calculate</button>
+
+<div id="sellerResult" class="result"></div>
+
+</div>
+
+</div>
 
 <script>
 
-function showTab(tab){
+function showTab(event,tab){
 
 document.querySelectorAll(".card").forEach(card=>{
 card.classList.add("hidden");
@@ -238,7 +203,7 @@ document.querySelectorAll(".tab").forEach(btn=>{
 btn.classList.remove("active");
 });
 
-event.target.classList.add("active");
+event.currentTarget.classList.add("active");
 
 }
 
@@ -250,4 +215,5 @@ event.target.classList.add("active");
 <script src="seller.js"></script>
 
 </body>
+
 </html>
