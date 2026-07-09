@@ -599,3 +599,398 @@ hr{
     }
 
 }
+
+/* ==========================================
+   PART 3
+   RESPONSIVE + POLISH
+========================================== */
+
+/* ---------- Hover Lift ---------- */
+
+.card{
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.45);
+
+}
+
+/* ---------- Input Hover ---------- */
+
+input:hover,
+select:hover{
+
+    border-color:rgba(0,200,255,.25);
+
+}
+
+/* ---------- Placeholder ---------- */
+
+::placeholder{
+
+    color:#7d8796;
+
+}
+
+/* ---------- Selection ---------- */
+
+::selection{
+
+    background:#00c8ff;
+    color:black;
+
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0b0d11;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00c8ff;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#00a8d6;
+
+}
+
+/* ---------- Smooth ---------- */
+
+button,
+input,
+select,
+.card,
+.tab{
+
+    transition:all .25s ease;
+
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width:1200px){
+
+.container{
+
+    width:1100px;
+
+}
+
+.card{
+
+    padding:40px;
+
+}
+
+.hero h1{
+
+    font-size:46px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:991px){
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.hero p{
+
+    font-size:15px;
+
+}
+
+.tab{
+
+    min-width:140px;
+
+}
+
+.card{
+
+    padding:25px;
+
+}
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+.container{
+
+    width:94%;
+
+    padding:20px 0 40px;
+
+}
+
+/* Hero */
+
+.hero{
+
+    margin-bottom:25px;
+
+}
+
+.hero-icon{
+
+    width:65px;
+    height:65px;
+
+    font-size:30px;
+
+}
+
+.hero h1{
+
+    font-size:26px;
+
+    margin-top:15px;
+
+}
+
+.hero p{
+
+    font-size:13px;
+
+}
+
+/* Tabs */
+
+.tab-buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+.tab{
+
+    width:100%;
+
+    min-width:unset;
+
+    padding:12px;
+
+    font-size:13px;
+
+}
+
+/* Card */
+
+.card{
+
+    padding:18px;
+
+    border-radius:18px;
+
+}
+
+.card h2{
+
+    font-size:22px;
+
+    margin-bottom:18px;
+
+}
+
+/* Form */
+
+label{
+
+    font-size:13px;
+
+    margin-top:12px;
+
+}
+
+input,
+select{
+
+    padding:12px;
+
+    font-size:14px;
+
+    border-radius:12px;
+
+}
+
+button{
+
+    padding:13px;
+
+    font-size:15px;
+
+}
+
+/* Result */
+
+.result{
+
+    margin-top:20px;
+
+}
+
+.result-card{
+
+    padding:18px;
+
+}
+
+.result-card h3{
+
+    font-size:18px;
+
+}
+
+.result-row{
+
+    font-size:13px;
+
+}
+
+.result-label{
+
+    font-size:13px;
+
+}
+
+.result-value{
+
+    font-size:14px;
+
+}
+
+.summary-title{
+
+    font-size:18px;
+
+}
+
+.total-box{
+
+    padding:20px;
+
+}
+
+.total-box h2{
+
+    font-size:26px;
+
+}
+
+.success,
+.warning,
+.danger{
+
+    font-size:14px;
+
+    padding:14px;
+
+}
+
+.note{
+
+    font-size:12px;
+
+}
+
+}
+
+/* ---------- Small Phone ---------- */
+
+@media (max-width:430px){
+
+.hero h1{
+
+    font-size:22px;
+
+}
+
+.hero p{
+
+    display:none;
+
+}
+
+.tab{
+
+    font-size:12px;
+
+    padding:10px;
+
+}
+
+.card{
+
+    padding:15px;
+
+}
+
+.card h2{
+
+    font-size:20px;
+
+}
+
+input,
+select{
+
+    padding:10px;
+
+    font-size:13px;
+
+}
+
+button{
+
+    font-size:14px;
+
+}
+
+.total-box h2{
+
+    font-size:22px;
+
+}
+
+}
