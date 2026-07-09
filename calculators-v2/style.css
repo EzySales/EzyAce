@@ -1,86 +1,295 @@
-@media(max-width:768px){
+/* ==========================================
+   EZYSALES CALCULATOR SUITE
+   PART 1 - FOUNDATION
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#090b10;
+    --card:#161b22;
+    --card2:#1c222b;
+
+    --primary:#00c8ff;
+    --primaryHover:#00e0ff;
+
+    --text:#ffffff;
+    --text2:#b5bcc8;
+
+    --success:#19c37d;
+    --warning:#ff9800;
+    --danger:#ef4444;
+
+    --border:rgba(255,255,255,.08);
+
+    --radius:22px;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top,#162236 0%,#0b0d11 45%,#090b10 100%);
+
+    color:var(--text);
+
+    font-family:'Inter',sans-serif;
+
+    min-height:100vh;
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
 
 .container{
-    padding:15px;
+
+    width:min(1150px,92%);
+
+    margin:auto;
+
+    padding:45px 0 60px;
+
 }
 
-h1{
-    font-size:28px;
-    margin-bottom:20px;
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
 }
 
-h2{
-    font-size:24px;
-    margin-bottom:18px;
+.hero-icon{
+
+    width:85px;
+    height:85px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:42px;
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(0,200,255,.25),
+        rgba(255,255,255,.05)
+    );
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+    0 15px 45px rgba(0,200,255,.18);
+
 }
 
-h3{
-    font-size:18px;
+.hero h1{
+
+    margin-top:22px;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
 }
+
+.hero p{
+
+    margin-top:10px;
+
+    color:var(--text2);
+
+    font-size:17px;
+
+}
+
+/* ==========================================
+   TABS
+========================================== */
+
+.tab-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-bottom:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.tab{
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:14px 24px;
+
+    min-width:165px;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+    font-weight:700;
+
+    backdrop-filter:blur(18px);
+
+}
+
+.tab:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(0,200,255,.12);
+
+    border-color:rgba(0,200,255,.35);
+
+}
+
+.tab.active{
+
+    background:var(--primary);
+
+    color:#000;
+
+    box-shadow:
+
+    0 10px 35px rgba(0,200,255,.28);
+
+}
+
+/* ==========================================
+   CARD
+========================================== */
 
 .card{
-    padding:16px;
-    border-radius:16px;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:35px;
+
+    backdrop-filter:blur(22px);
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.45);
+
 }
 
+.hidden{
+
+    display:none;
+
+}
+
+.card h2{
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+    font-weight:800;
+
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
 label{
-    font-size:13px;
-    margin-top:12px;
-    margin-bottom:6px;
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#d5dce6;
+
 }
 
 input,
 select{
-    padding:10px;
-    font-size:14px;
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#10151c;
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    outline:none;
+
 }
 
-button{
-    width:auto;
-    padding:10px 16px;
-    font-size:14px;
+input::placeholder{
+
+    color:#7f8b9a;
+
 }
 
-.tab-buttons{
-    gap:6px;
-    flex-wrap:nowrap;
-}
+input:focus,
+select:focus{
 
-.tab{
-    min-width:0;
-    width:25%;
-    font-size:12px;
-    padding:10px 4px;
-}
+    border-color:var(--primary);
 
-.result{
-    margin-top:20px;
-}
+    box-shadow:
 
-.result h3{
-    font-size:18px;
-    margin-top:15px;
-}
-
-.result p{
-    font-size:14px;
-    line-height:1.5;
-    margin:6px 0;
-}
-
-.result-card{
-    padding:16px;
-}
-
-.success,
-.warning,
-.danger{
-    padding:12px;
-    font-size:14px;
-}
-
-hr{
-    margin:16px 0;
-}
+    0 0 0 4px rgba(0,200,255,.15);
 
 }
