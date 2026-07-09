@@ -795,23 +795,26 @@ select,
 
 .tab-buttons{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(2,1fr);
+    flex-wrap:nowrap;
 
-    gap:10px;
+    gap:8px;
+
+    justify-content:space-between;
 
 }
-
 .tab{
 
-    width:100%;
+    flex:1;
 
-    min-width:unset;
+    min-width:0;
 
-    padding:12px;
+    padding:10px 4px;
 
-    font-size:13px;
+    font-size:12px;
+
+    white-space:nowrap;
 
 }
 
