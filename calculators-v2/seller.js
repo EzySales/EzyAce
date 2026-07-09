@@ -56,38 +56,28 @@ function calcSeller() {
     /* ----------------------------
        RPGT
     -----------------------------*/
+let rpgtRate = 0;
 
-    let rpgtRate = 0;
+if (yearsOwned === "Below 3 Years") {
+    rpgtRate = 30;
+}
+else if (yearsOwned === "4 Years") {
+    rpgtRate = 15;
+}
+else if (yearsOwned === "5 Years") {
+    rpgtRate = 5;
+}
+else if (yearsOwned === "More than 5 Years") {
+    rpgtRate = 0;
+}
 
-    if (yearsOwned === "1")
-        rpgtRate = 30;
+let chargeableGain = grossProfit - allowableExpenses;
 
-    else if (yearsOwned === "2")
-        rpgtRate = 30;
+if (chargeableGain < 0)
+    chargeableGain = 0;
 
-    else if (yearsOwned === "3")
-        rpgtRate = 20;
-
-    else if (yearsOwned === "4")
-        rpgtRate = 15;
-
-    else if (yearsOwned === "5")
-        rpgtRate = 5;
-
-    else
-        rpgtRate = 0;
-
-    let chargeableGain =
-        grossProfit -
-        allowableExpenses;
-
-    if (chargeableGain < 0)
-        chargeableGain = 0;
-
-    const rpgt =
-        chargeableGain *
-        (rpgtRate / 100);
-
+const rpgt = chargeableGain * (rpgtRate / 100);
+    
     /* ----------------------------
        Bank Penalty
     -----------------------------*/
