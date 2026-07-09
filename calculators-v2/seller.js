@@ -25,22 +25,19 @@ function calcSeller() {
        Lawyer Fee
     -----------------------------*/
 
-    let lawyerFee = 0;
-    let disbursement = 0;
+ let lawyerFee = 0;
+let disbursement = sell * 0.0075; // 0.75%
 
-    if (lawyerType === "own") {
+if (lawyerType === "Own Lawyer") {
 
-        lawyerFee = sell * 0.015;
-        disbursement = sell * 0.0075;
+    lawyerFee = sell * 0.0085; // 0.85%
 
-    }
+}
+else {
 
-    else {
+    lawyerFee = 0;
 
-        lawyerFee = sell * 0.0075;
-        disbursement = 0;
-
-    }
+}
 
     /* ----------------------------
        Gross Profit
