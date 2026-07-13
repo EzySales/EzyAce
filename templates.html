@@ -1,83 +1,235 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Templates — EzySales Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {--primary:#2563eb;--secondary:#0ea5e9;--text:#0f172a;--muted:#64748b;--bg:#f8fafc;--card:#ffffff;}
-body{font-family:Inter;background:var(--bg);color:var(--text);margin:0}
-header{background:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-nav a{margin-left:20px;font-weight:600;text-decoration:none;color:var(--text)}
-nav a:hover{color:var(--primary)}
-.section{max-width:1000px;margin:40px auto;padding:0 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-h1{font-size:32px;font-weight:700;margin-bottom:10px}
-p.lead{color:var(--muted);margin-bottom:30px;font-size:16px}
-pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:10px;font-size:14px;overflow-x:auto}
-</style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EzySales Sales Toolkit</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="templates.css">
+
 </head>
+
 <body>
-<header>
-  <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="onboarding.html">Onboarding</a>
-    <a href="training.html">Videos</a>
-    <a href="projects.html">Projects</a>
-    <a href="weekly.html">Coaching</a>
-    <a href="admin.html">Admin</a>
-    <a href="team.html">Team</a>
 
-  </nav>
-</header>
+<div class="container">
 
-<section class="section">
-  <h1>Templates & Scripts</h1>
-  <p class="lead">Copy & paste ready-made templates for messaging, captions, and follow-up.</p>
+<div class="hero">
 
-  <div class="grid">
+<h1>🧰 Sales Toolkit</h1>
 
-    <div class="card">
-      <h3>💬 WhatsApp Quick Reply</h3>
-      <pre>Hi {{name}}, thanks for your enquiry regarding {{property}}.
-May I know if you're looking for more info or to schedule a viewing? 😊
+<p>
+Copy professional scripts, captions and replies in one click.
+</p>
 
-I can assist you right away.</pre>
-    </div>
+</div>
 
-    <div class="card">
-      <h3>📸 Listing Caption Template</h3>
-      <pre>{{PROPERTY NAME}}
-📍 Location: {{Area}}
-💰 Price: RM {{Price}}
-🏠 Bedrooms: {{X}} | 🚿 Bathrooms: {{Y}}
-🚗 Parking: {{Z}}
+<!-- SEARCH -->
 
-✨ Key Features:
-- Point A
-- Point B
-- Point C
+<div class="search-box">
 
-Interested? PM me for viewing! 😊</pre>
-    </div>
+<input
+type="text"
+id="search"
+placeholder="🔍 Search templates...">
 
-    <div class="card">
-      <h3>🔁 Follow Up Script</h3>
-      <pre>Hi {{name}}, just checking in — would you like to proceed with viewing for {{property}}?
-I can arrange according to your availability. 😊</pre>
-    </div>
+</div>
 
-    <div class="card">
-      <h3>📝 Objection Handling</h3>
-      <pre>Client: "I want to think first."
-Agent: "No problem! May I know which part you want to consider? Price, loan, or the unit itself? I can help clarify.”</pre>
-    </div>
+<!-- CATEGORY -->
 
-  </div>
-</section>
+<div class="categories">
+
+<button class="category active" onclick="filterCards('all')">
+All
+</button>
+
+<button class="category" onclick="filterCards('marketing')">
+Marketing
+</button>
+
+<button class="category" onclick="filterCards('owner')">
+Owner
+</button>
+
+<button class="category" onclick="filterCards('buyer')">
+Buyer
+</button>
+
+<button class="category" onclick="filterCards('whatsapp')">
+WhatsApp
+</button>
+
+<button class="category" onclick="filterCards('legal')">
+Legal
+</button>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="grid">
+
+<!-- CARD 1 -->
+
+<div
+class="card"
+data-category="buyer whatsapp">
+
+<h3>👨 New Buyer Enquiry</h3>
+
+<p>
+Perfect reply for first enquiry.
+</p>
+
+<textarea readonly>
+
+Hi {{Name}},
+
+Thank you for your enquiry.
+
+May I know which area and budget you are looking for?
+
+I'll recommend the best properties that suit your requirements.
+
+Looking forward to assisting you.
+
+</textarea>
+
+<button onclick="copyTemplate(this)">
+
+📋 Copy Template
+
+</button>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div
+class="card"
+data-category="marketing">
+
+<h3>🏠 Property Listing</h3>
+
+<p>
+Professional Facebook listing.
+</p>
+
+<textarea readonly>
+
+🏠 {{PROPERTY}}
+
+📍 {{AREA}}
+
+💰 RM {{PRICE}}
+
+🛏 {{BEDROOM}}
+
+🚿 {{BATHROOM}}
+
+🚗 {{PARKING}}
+
+Interested?
+
+PM me today.
+
+</textarea>
+
+<button onclick="copyTemplate(this)">
+
+📋 Copy Template
+
+</button>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div
+class="card"
+data-category="owner">
+
+<h3>🏡 Owner First Contact</h3>
+
+<p>
+
+Cold approach to owner.
+
+</p>
+
+<textarea readonly>
+
+Hi,
+
+I noticed your property around {{Area}}.
+
+I'm currently assisting several buyers looking there.
+
+Would you be interested in selling?
+
+Thank you.
+
+</textarea>
+
+<button onclick="copyTemplate(this)">
+
+📋 Copy Template
+
+</button>
+
+</div>
+
+<!-- CARD 4 -->
+
+<div
+class="card"
+data-category="legal">
+
+<h3>📄 Explain SPA</h3>
+
+<p>
+
+Simple explanation.
+
+</p>
+
+<textarea readonly>
+
+SPA means Sale & Purchase Agreement.
+
+It is the legal agreement between buyer and seller before ownership transfer.
+
+</textarea>
+
+<button onclick="copyTemplate(this)">
+
+📋 Copy Template
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TOAST -->
+
+<div id="toast">
+
+✅ Template Copied
+
+</div>
+
+<script src="templates.js"></script>
 
 </body>
+
 </html>
