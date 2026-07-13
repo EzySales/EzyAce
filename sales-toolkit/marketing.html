@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Marketing Copywriting | EzySales Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+
+<div class="hero-icon">
+📢
+</div>
+
+<h1>Marketing Copywriting</h1>
+
+<p>
+Generate professional property marketing captions in seconds.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Property Information</h2>
+
+<label>Property Type</label>
+
+<select id="propertyType">
+
+<option>Apartment</option>
+<option>Condominium</option>
+<option>Single Storey</option>
+<option>Double Storey</option>
+<option>Semi-D</option>
+<option>Bungalow</option>
+<option>Shoplot</option>
+<option>Office</option>
+<option>Factory</option>
+<option>Land</option>
+<option>Commercial</option>
+
+</select>
+
+<label>Property Name</label>
+
+<input
+type="text"
+id="propertyName"
+placeholder="e.g. Bukit Sentosa">
+
+<label>Location</label>
+
+<input
+type="text"
+id="location"
+placeholder="e.g. Rawang">
+
+<label>Selling Price (RM)</label>
+
+<input
+type="number"
+id="price"
+placeholder="e.g. 450000">
+
+<label>Bedrooms</label>
+
+<input
+type="number"
+id="bedroom">
+
+<label>Bathrooms</label>
+
+<input
+type="number"
+id="bathroom">
+
+<label>Car Parks</label>
+
+<input
+type="number"
+id="parking">
+
+<label>Built Up</label>
+
+<input
+type="text"
+id="buildup"
+placeholder="e.g. 1,400 sqft">
+
+<label>Land Size</label>
+
+<input
+type="text"
+id="landsize"
+placeholder="e.g. 22x75">
+
+<label>Tenure</label>
+
+<select id="tenure">
+
+<option>Freehold</option>
+<option>Leasehold</option>
+
+</select>
+
+<label>Nearby Amenities</label>
+
+<textarea
+id="nearby"
+placeholder="School, MRT, Aeon Mall"></textarea>
+
+<label>Special Features</label>
+
+<textarea
+id="features"
+placeholder="Renovated, Corner Lot, Fully Furnished"></textarea>
+
+<label>Marketing Style</label>
+
+<select id="style">
+
+<option>Professional</option>
+
+<option>Luxury</option>
+
+<option>Investment</option>
+
+<option>Urgent Sale</option>
+
+<option>Friendly</option>
+
+</select>
+
+<button onclick="generateMarketing()">
+
+✨ Generate Copywriting
+
+</button>
+
+</div>
+
+<!-- OUTPUT CARD STARTS HERE -->
