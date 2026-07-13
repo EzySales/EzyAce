@@ -1,0 +1,324 @@
+/* ==========================================
+   EZYSALES SALES TOOLKIT
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#090b10;
+    --card:#171c24;
+    --card2:#1d2430;
+
+    --primary:#00c8ff;
+
+    --text:#ffffff;
+    --muted:#9aa5b1;
+
+    --border:rgba(255,255,255,.08);
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:
+    radial-gradient(circle at top,#15243a 0%,#0b0d11 45%,#090b10 100%);
+
+    color:white;
+
+    min-height:100vh;
+
+}
+
+.container{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    padding:50px 0;
+
+}
+
+/* HERO */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:55px;
+
+}
+
+.hero-icon{
+
+    width:90px;
+    height:90px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:42px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,200,255,.25),
+        rgba(255,255,255,.05)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 15px 45px rgba(0,200,255,.20);
+
+}
+
+.hero h1{
+
+    font-size:46px;
+
+    margin-top:22px;
+
+    font-weight:800;
+
+}
+
+.hero p{
+
+    color:var(--muted);
+
+    margin-top:10px;
+
+    font-size:17px;
+
+    max-width:700px;
+
+    margin-inline:auto;
+
+}
+
+/* GRID */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:28px;
+
+}
+
+/* MODULE */
+
+.module{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    transition:.30s;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.module:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,200,255,.35);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.45);
+
+}
+
+/* ICON */
+
+.icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(0,200,255,.18),
+        rgba(255,255,255,.05)
+    );
+
+    margin-bottom:20px;
+
+}
+
+/* TITLE */
+
+.module h2{
+
+    font-size:26px;
+
+    margin-bottom:12px;
+
+}
+
+/* DESCRIPTION */
+
+.module p{
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+    flex:1;
+
+}
+
+/* BADGE */
+
+.badge{
+
+    display:inline-flex;
+
+    width:max-content;
+
+    margin-top:20px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(0,200,255,.12);
+
+    color:#00c8ff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* OPEN */
+
+.module span{
+
+    margin-top:22px;
+
+    color:#00c8ff;
+
+    font-weight:700;
+
+    font-size:15px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.container{
+
+    width:94%;
+
+    padding:30px 0;
+
+}
+
+.hero{
+
+    margin-bottom:35px;
+
+}
+
+.hero-icon{
+
+    width:70px;
+    height:70px;
+
+    font-size:32px;
+
+}
+
+.hero h1{
+
+    font-size:30px;
+
+}
+
+.hero p{
+
+    font-size:14px;
+
+}
+
+.grid{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+}
+
+.module{
+
+    padding:20px;
+
+}
+
+.module h2{
+
+    font-size:22px;
+
+}
+
+.icon{
+
+    width:55px;
+
+    height:55px;
+
+    font-size:24px;
+
+}
+
+}
