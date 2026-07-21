@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Marketing Copywriting | EzySales Academy</title>
+<title>Marketing Generator | EzySales Academy</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,42 +27,76 @@
 📢
 </div>
 
-<h1>Marketing Copywriting</h1>
+<h1>Marketing Generator</h1>
 
 <p>
-Generate professional property marketing captions in seconds.
+Create professional property copywriting in less than 30 seconds.
 </p>
 
 </div>
 
+<!-- PROPERTY TYPES -->
+
 <div class="card">
 
-<h2>Property Information</h2>
+<h2>Step 1 • Choose Property Type</h2>
 
-<label>Property Type</label>
+<div class="property-grid">
 
-<select id="propertyType">
+<div class="property-card active">
+🏢
+<span>Apartment</span>
+</div>
 
-<option>Apartment</option>
-<option>Condominium</option>
-<option>Single Storey</option>
-<option>Double Storey</option>
-<option>Semi-D</option>
-<option>Bungalow</option>
-<option>Shoplot</option>
-<option>Office</option>
-<option>Factory</option>
-<option>Land</option>
-<option>Commercial</option>
+<div class="property-card">
+🏠
+<span>Landed</span>
+</div>
 
-</select>
+<div class="property-card">
+🏬
+<span>Shoplot</span>
+</div>
 
-<label>Property Name</label>
+<div class="property-card">
+🌾
+<span>Land</span>
+</div>
+
+<div class="property-card">
+🏭
+<span>Factory</span>
+</div>
+
+<div class="property-card">
+🏢
+<span>Commercial</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROPERTY DETAILS -->
+
+<div class="card">
+
+<h2>Step 2 • Property Details</h2>
+
+<div class="form-grid">
+
+<div>
+
+<label>Project Name</label>
 
 <input
 type="text"
-id="propertyName"
+id="project"
 placeholder="e.g. Bukit Sentosa">
+
+</div>
+
+<div>
 
 <label>Location</label>
 
@@ -71,12 +105,19 @@ type="text"
 id="location"
 placeholder="e.g. Rawang">
 
-<label>Selling Price (RM)</label>
+</div>
+
+<div>
+
+<label>Price (RM)</label>
 
 <input
 type="number"
-id="price"
-placeholder="e.g. 450000">
+id="price">
+
+</div>
+
+<div>
 
 <label>Bedrooms</label>
 
@@ -84,17 +125,29 @@ placeholder="e.g. 450000">
 type="number"
 id="bedroom">
 
+</div>
+
+<div>
+
 <label>Bathrooms</label>
 
 <input
 type="number"
 id="bathroom">
 
+</div>
+
+<div>
+
 <label>Car Parks</label>
 
 <input
 type="number"
 id="parking">
+
+</div>
+
+<div>
 
 <label>Built Up</label>
 
@@ -103,169 +156,19 @@ type="text"
 id="buildup"
 placeholder="e.g. 1,400 sqft">
 
+</div>
+
+<div>
+
 <label>Land Size</label>
 
 <input
 type="text"
 id="landsize"
-placeholder="e.g. 22x75">
-
-<label>Tenure</label>
-
-<select id="tenure">
-
-<option>Freehold</option>
-<option>Leasehold</option>
-
-</select>
-
-<label>Nearby Amenities</label>
-
-<textarea
-id="nearby"
-placeholder="School, MRT, Aeon Mall"></textarea>
-
-<label>Special Features</label>
-
-<textarea
-id="features"
-placeholder="Renovated, Corner Lot, Fully Furnished"></textarea>
-
-<label>Marketing Style</label>
-
-<select id="style">
-
-<option>Professional</option>
-
-<option>Luxury</option>
-
-<option>Investment</option>
-
-<option>Urgent Sale</option>
-
-<option>Friendly</option>
-
-</select>
-
-<button onclick="generateMarketing()">
-
-✨ Generate Copywriting
-
-</button>
-
-</div>
-
-<!-- OUTPUT CARD STARTS HERE -->
-
-  <div class="card output-card">
-
-<h2>📝 Generated Copywriting</h2>
-
-<div class="output-tabs">
-
-<button class="output-tab active">
-📘 Facebook
-</button>
-
-<button class="output-tab">
-💬 WhatsApp
-</button>
-
-<button class="output-tab">
-📸 Instagram
-</button>
-
-<button class="output-tab">
-🎥 TikTok
-</button>
-
-</div>
-
-<textarea
-id="generatedText"
-readonly
-placeholder="Your generated copywriting will appear here..."></textarea>
-
-<div class="button-group">
-
-<button onclick="copyMarketing()">
-📋 Copy
-</button>
-
-<button onclick="clearForm()">
-🗑 Clear
-</button>
-
-</div>
-
-</div>
-
-<div class="tips-card">
-
-<h2>💡 Marketing Tips</h2>
-
-<div class="tips">
-
-<div class="tip">
-
-<h3>🏷 Price</h3>
-
-<p>
-Always state the selling price clearly.
-</p>
-
-</div>
-
-<div class="tip">
-
-<h3>📍 Location</h3>
-
-<p>
-Mention nearby schools, highways, MRT, malls and hospitals.
-</p>
-
-</div>
-
-<div class="tip">
-
-<h3>✨ Features</h3>
-
-<p>
-Highlight renovation, corner lot, fully furnished, low density or below market value.
-</p>
-
-</div>
-
-<div class="tip">
-
-<h3>📞 Call To Action</h3>
-
-<p>
-Always end with "PM me now" or "Book your viewing today."
-</p>
+placeholder="22 x 75">
 
 </div>
 
 </div>
 
 </div>
-
-<div class="back-home">
-
-<a href="index.html">
-
-← Back to Sales Toolkit
-
-</a>
-
-</div>
-
-</div>
-
-<script src="marketing.js"></script>
-
-</body>
-
-</html>
-
-  
