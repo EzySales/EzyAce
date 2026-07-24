@@ -321,4 +321,106 @@ body{
 
 }
 
+   
 }
+
+<div class="card">
+
+<h2>Step 3 • Choose Marketing Style</h2>
+
+<div class="style-grid">
+
+<div class="style-card active">
+💼
+<h3>Professional</h3>
+<p>Formal property listing.</p>
+</div>
+
+<div class="style-card">
+✨
+<h3>Luxury</h3>
+<p>Premium & elegant wording.</p>
+</div>
+
+<div class="style-card">
+📈
+<h3>Investment</h3>
+<p>Focus on ROI & rental.</p>
+</div>
+
+<div class="style-card">
+🔥
+<h3>Urgent Sale</h3>
+<p>Create urgency.</p>
+</div>
+
+<div class="style-card">
+😊
+<h3>Friendly</h3>
+<p>Casual & conversational.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Step 4 • Generate</h2>
+
+<button id="generateBtn">
+
+✨ Generate Marketing Copy
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Generated Copywriting</h2>
+
+<div class="output-box">
+
+<textarea
+id="generatedText"
+placeholder="Your generated copywriting will appear here..."
+readonly></textarea>
+
+</div>
+
+<div class="action-buttons">
+
+<button>
+
+📋 Copy
+
+</button>
+
+<button>
+
+🔄 Generate Again
+
+</button>
+
+</div>
+
+</div>
+
+<div style="text-align:center;margin:40px 0;">
+
+<a href="index.html" class="back-link">
+
+← Back to Sales Toolkit
+
+</a>
+
+</div>
+
+</div>
+
+<script src="marketing.js"></script>
+
+</body>
+
+</html>
