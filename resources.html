@@ -5,74 +5,57 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Resources — EzySales Academy</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {--primary:#2563eb;--secondary:#0ea5e9;--text:#0f172a;--muted:#64748b;--bg:#f8fafc;--card:#ffffff;}
-body{font-family:Inter;background:var(--bg);color:var(--text);margin:0}
-header{background:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-nav a{margin-left:20px;font-weight:600;text-decoration:none;color:var(--text)}
-nav a:hover{color:var(--primary)}
-.section{max-width:1100px;margin:40px auto;padding:0 20px}
-h1{font-size:32px;font-weight:700;margin-bottom:10px}
-p.lead{color:var(--muted);margin-bottom:30px;font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-.card h3{font-size:20px;margin-bottom:10px}
-.res-item{margin-bottom:10px}
-.res-item a{color:var(--primary);font-weight:600;text-decoration:none}
-.res-item a:hover{text-decoration:underline}
-</style>
+<link rel="stylesheet" href="assets/theme.css">
 </head>
 <body>
 
-<header>
-  <div style="font-weight:700;font-size:20px;color:var(--primary)">EzySales Academy</div>
-  <nav>
+<header class="site-header">
+  <a href="index.html" class="brand"><span class="logo">EA</span> EzySales Academy</a>
+  <nav class="site-nav">
     <a href="index.html">Home</a>
     <a href="onboarding.html">Onboarding</a>
     <a href="training.html">Videos</a>
     <a href="sales-toolkit/index.html">Templates</a>
-    <a href="projects.html">Projects</a>
     <a href="weekly.html">Coaching</a>
-    <a href="team.html">Team</a>
-    <a href="admin.html">Admin</a>
+    <a href="resources.html" class="active">Resources</a>
   </nav>
 </header>
 
-<section class="section">
+<section class="page-section">
   <h1>Resources</h1>
   <p class="lead">Download forms, guides, marketing materials, checklists, and more.</p>
 
-  <div class="grid">
+  <div class="glass-grid">
 
-    <div class="card">
+    <div class="glass-card">
       <h3>📄 Forms & Documents</h3>
-      <div class="res-item"><a href="#">Booking Form (PDF)</a></div>
-      <div class="res-item"><a href="#">Tenancy Agreement Sample</a></div>
-      <div class="res-item"><a href="#">SPA Sample Document</a></div>
-      <div class="res-item"><a href="#">REN Contract Template</a></div>
+      <a class="res-link" href="#">Booking Form (PDF) <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Tenancy Agreement Sample <span class="arrow">→</span></a>
+      <a class="res-link" href="#">SPA Sample Document <span class="arrow">→</span></a>
+      <a class="res-link" href="#">REN Contract Template <span class="arrow">→</span></a>
     </div>
 
-    <div class="card">
+    <div class="glass-card">
       <h3>📚 Guides & SOP</h3>
-      <div class="res-item"><a href="#">Lead Conversion Guide</a></div>
-      <div class="res-item"><a href="#">Viewing SOP Checklist</a></div>
-      <div class="res-item"><a href="#">Closing Timeline Reference</a></div>
-      <div class="res-item"><a href="#">New Agent Starter Kit</a></div>
+      <a class="res-link" href="#">Lead Conversion Guide <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Viewing SOP Checklist <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Closing Timeline Reference <span class="arrow">→</span></a>
+      <a class="res-link" href="#">New Agent Starter Kit <span class="arrow">→</span></a>
     </div>
 
-    <div class="card">
+    <div class="glass-card">
       <h3>🎨 Marketing Materials</h3>
-      <div class="res-item"><a href="#">Canva Poster Templates</a></div>
-      <div class="res-item"><a href="#">FB/IG Captions Pack</a></div>
-      <div class="res-item"><a href="#">Listing Description Examples</a></div>
+      <a class="res-link" href="#">Canva Poster Templates <span class="arrow">→</span></a>
+      <a class="res-link" href="#">FB/IG Captions Pack <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Listing Description Examples <span class="arrow">→</span></a>
     </div>
 
-    <div class="card">
+    <div class="glass-card">
       <h3>🧩 Tools & Links</h3>
-      <div class="res-item"><a href="#">Loan Eligibility Calculator</a></div>
-      <div class="res-item"><a href="#">Stamp Duty Calculator</a></div>
-      <div class="res-item"><a href="#">Malaysia Property Market Report</a></div>
-      <div class="res-item"><a href="#">Google Sheet: KPI Tracker</a></div>
+      <a class="res-link" href="calculators.html">Loan Eligibility Calculator <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Stamp Duty Calculator <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Malaysia Property Market Report <span class="arrow">→</span></a>
+      <a class="res-link" href="#">Google Sheet: KPI Tracker <span class="arrow">→</span></a>
     </div>
 
   </div>
