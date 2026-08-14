@@ -3,8 +3,7 @@ function calcLoan() {
     const price = parseFloat(document.getElementById("loanPrice").value);
     const rate = parseFloat(document.getElementById("loanRate").value);
     const years = parseFloat(document.getElementById("loanYears").value);
-    const margin = parseFloat(document.getElementById("loanMargin").value);
-    const type = document.getElementById("propertyType").value;
+    const margin = 90;
 
     if (!price || !rate || !years) {
         document.getElementById("loanResult").innerHTML =
@@ -13,7 +12,6 @@ function calcLoan() {
     }
 
     const loanAmount = price * (margin / 100);
-    const downpayment = price - loanAmount;
 
     const monthlyRate = rate / 100 / 12;
     const months = years * 12;
@@ -44,30 +42,6 @@ function calcLoan() {
         valuationFee = "RM2,000 - RM3,000";
     }
 
-    // Stamp Duty (Loan Agreement)
-    let stampDuty = loanAmount * 0.005;
-
-    // MOT Estimate
-    let mot = "";
-
-    if (type == "subsale") {
-
-        if (price <= 100000)
-            mot = "RM1,000 - RM2,000";
-        else if (price <= 500000)
-            mot = "RM3,000 - RM6,000";
-        else
-            mot = "RM6,000+";
-
-    } else {
-
-        mot = "Absorbed by Developer ✅";
-
-    }
-
-    // Cash Needed
-    let cashNeeded = downpayment + stampDuty;
-
     // Income Recommendation
     let recommendIncome = monthly / 0.35;
 
@@ -89,22 +63,6 @@ ${money(monthly)}
 
 <br><br>
 
-<b>Loan Amount</b><br>
-${money(loanAmount)}
-
-<br><br>
-
-<b>Downpayment</b><br>
-${money(downpayment)}
-
-`;
-
-    if (type == "subsale") {
-
-        html += `
-
-<br><br>
-
 <b>Lawyer Fee Estimate</b><br>
 ${lawyerFee}
 
@@ -112,48 +70,6 @@ ${lawyerFee}
 
 <b>Valuation Fee Estimate</b><br>
 ${valuationFee}
-
-<br><br>
-
-<b>Stamp Duty (Loan)</b><br>
-${money(stampDuty)}
-
-<br><br>
-
-<b>MOT Estimate</b><br>
-${mot}
-
-<br><br>
-
-<b>Estimated Cash Needed</b><br>
-${money(cashNeeded)}
-
-`;
-
-    } else {
-
-        html += `
-
-<br><br>
-
-<b>SPA Legal Fee</b><br>
-Absorbed by Developer ✅
-
-<br><br>
-
-<b>Valuation Fee</b><br>
-Absorbed by Developer ✅
-
-<br><br>
-
-<b>MOT</b><br>
-Usually Absorbed by Developer ✅
-
-`;
-
-    }
-
-    html += `
 
 <br><br>
 

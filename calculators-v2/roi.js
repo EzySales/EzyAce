@@ -1,6 +1,7 @@
 function calcROI() {
 
     const housePrice = parseFloat(document.getElementById("housePrice").value);
+    const downPayment = parseFloat(document.getElementById("downPayment").value);
     const monthlyRent = parseFloat(document.getElementById("monthlyRent").value);
     const loanInstallment = parseFloat(document.getElementById("loanInstallment").value);
     const maintenanceFee = parseFloat(document.getElementById("maintenanceFee").value);
@@ -8,6 +9,7 @@ function calcROI() {
 
     if (
         isNaN(housePrice) ||
+        isNaN(downPayment) ||
         isNaN(monthlyRent) ||
         isNaN(loanInstallment) ||
         isNaN(maintenanceFee) ||
@@ -15,6 +17,12 @@ function calcROI() {
     ) {
         document.getElementById("roiResult").innerHTML =
         "<span style='color:#ff6b6b'>Please fill in all fields.</span>";
+        return;
+    }
+
+    if (downPayment <= 0) {
+        document.getElementById("roiResult").innerHTML =
+        "<span style='color:#ff6b6b'>Down Payment must be more than 0.</span>";
         return;
     }
 
@@ -28,9 +36,9 @@ function calcROI() {
     const rentalYield =
         (monthlyRent * 12 / housePrice) * 100;
 
-    // ROI
+    // ROI (Cash-on-Cash Return = Annual Cash Flow / actual cash invested)
     const roi =
-        (annualCashFlow / housePrice) * 100;
+        (annualCashFlow / downPayment) * 100;
 
     // Rating
     let rating = "";

@@ -21,6 +21,8 @@
 
 <div class="container">
 
+<a href="../index.html" class="back-link">🏠 Main Menu</a>
+
 <div class="hero">
 
 <div class="hero-icon">🧮</div>
@@ -77,16 +79,6 @@ Professional Property Calculators for Real Estate Agents
 
 <h2>🏠 Home Loan Calculator</h2>
 
-<label>Property Type</label>
-
-<select id="propertyType">
-
-<option value="subsale">🏠 Subsale</option>
-
-<option value="new">🏢 New Project</option>
-
-</select>
-
 <label>Property Price (RM)</label>
 
 <input id="loanPrice" type="number">
@@ -98,16 +90,6 @@ Professional Property Calculators for Real Estate Agents
 <label>Loan Tenure (Years)</label>
 
 <input id="loanYears" type="number">
-
-<label>Loan Margin</label>
-
-<select id="loanMargin">
-
-<option value="90">90%</option>
-<option value="95">95%</option>
-<option value="100">100%</option>
-
-</select>
 
 <button onclick="calcLoan()">Calculate</button>
 
@@ -123,6 +105,9 @@ Professional Property Calculators for Real Estate Agents
 
 <label>House Price</label>
 <input id="housePrice" type="number">
+
+<label>Down Payment (Cash Invested, RM)</label>
+<input id="downPayment" type="number">
 
 <label>Monthly Rental</label>
 <input id="monthlyRent" type="number">
