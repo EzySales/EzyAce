@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buyer Follow Up | EzySales Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<div class="hero-icon">👨‍👩‍👧</div>
+<h1>Buyer Follow Up</h1>
+<p>Templates for enquiries, viewings, bookings, loan updates, SPA process, and referrals.</p>
+</div>
+
+<div class="card">
+<h2>1 • Replying to a New Enquiry</h2>
+<pre>Hi [Buyer Name], thank you for your interest! 😊
+
+The unit at [project/location] is priced at RM[price], [bedrooms] bed / [bathrooms] bath, [built-up] sqft.
+
+May I know your budget range and whether you're looking to buy for own stay or investment? This helps me recommend the best match for you.</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>2 • Arranging a Viewing</h2>
+<pre>Great, let's arrange a viewing! 🏡
+
+I'm free on [date/time options]. Which slot works best for you?
+
+Please bring along your IC for security registration at the guardhouse. See you soon!</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>3 • Post-Viewing Follow-Up</h2>
+<pre>Hi [Buyer Name], thanks for viewing the unit today!
+
+What did you think of the layout and condition? If you have any questions about pricing, loan eligibility, or the surrounding area, I'm happy to help. Let me know if you'd like to proceed with a booking. 🙏</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>4 • Booking Confirmation</h2>
+<pre>Congratulations on your decision, [Buyer Name]! 🎉
+
+To secure the unit, we'll need a booking fee of RM[amount]. Once received, I'll prepare the booking form and forward it to the owner/developer.
+
+Next steps: booking → loan application → Sale & Purchase Agreement (SPA) signing.</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>5 • Loan Update Message</h2>
+<pre>Hi [Buyer Name], quick update on your loan application:
+
+Status: [Submitted / Approved / Pending documents]
+Bank: [Bank Name]
+Approved margin: [90% / 95% / 100%]
+
+Let me know if the bank needs any additional documents from you — happy to assist!</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>6 • SPA Process Update</h2>
+<pre>Hi [Buyer Name], here's where we are in the process:
+
+✅ Booking done
+✅ Loan approved
+🔄 SPA drafted by lawyer — awaiting your signature
+⏳ Next: down payment + stamp duty
+
+I'll keep you updated every step of the way. Let me know if you have any questions!</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>7 • Asking for Referral</h2>
+<pre>Hi [Buyer Name], it's been a pleasure helping you find your new home! 🏡
+
+If you know any friends or family who are also looking to buy, rent, or sell, I'd really appreciate a referral. I'll make sure to take great care of them too. Thank you so much! 🙏</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div style="text-align:center;margin:40px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+<a href="index.html" class="back-link">← Back to Sales Toolkit</a>
+<a href="../index.html" class="back-link">🏠 Main Menu</a>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll(".copy-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        const pre = btn.previousElementSibling;
+        navigator.clipboard.writeText(pre.innerText);
+        const original = btn.textContent;
+        btn.textContent = "✅ Copied!";
+        setTimeout(()=>{ btn.textContent = original; }, 1500);
+    });
+});
+</script>
+
+</body>
+</html>

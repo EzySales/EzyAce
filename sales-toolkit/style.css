@@ -252,6 +252,346 @@ body{
 
 }
 
+/* ==========================================
+   INNER TOOL PAGES (marketing / owner / buyer / information)
+========================================== */
+
+.card{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 24px;
+    scroll-margin-top: 100px;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.card-header h2{
+    margin-bottom: 0;
+}
+
+.badge-tag{
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
+
+.badge-green{
+    background: rgba(16,185,129,.15);
+    color: #10b981;
+    border: 1px solid rgba(16,185,129,.3);
+}
+
+.badge-amber{
+    background: rgba(245,158,11,.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245,158,11,.3);
+}
+
+.coach-note{
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 10px 0 16px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.tip-box{
+    background: rgba(0,200,255,.08);
+    border: 1px solid rgba(0,200,255,.25);
+    border-left: 4px solid var(--primary);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+}
+
+.tip-box h3{
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.tip-box ul{
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.jump-nav{
+    position: sticky;
+    top: 12px;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: rgba(9,11,16,.85);
+    backdrop-filter: blur(10px);
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+}
+
+.jump-chip{
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.jump-chip:hover{
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.card h2{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+label{
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+input,
+select,
+textarea{
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* PROPERTY TYPE / STYLE PICKER CARDS */
+
+.property-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.style-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.property-card,
+.style-card{
+    cursor: pointer;
+    text-align: center;
+    padding: 18px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    font-size: 26px;
+    transition: .2s ease;
+}
+
+.property-card span,
+.style-card h3{
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.style-card p{
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.property-card:hover,
+.style-card:hover{
+    border-color: rgba(0,200,255,.35);
+    transform: translateY(-3px);
+}
+
+.property-card.active,
+.style-card.active{
+    border-color: var(--primary);
+    background: rgba(0,200,255,.12);
+    box-shadow: 0 0 0 1px var(--primary) inset;
+}
+
+/* BUTTONS */
+
+button{
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.card > button,
+#generateBtn{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#00c8ff,#007bff);
+    color: #00141f;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.card > button:hover,
+#generateBtn:hover{
+    box-shadow: 0 10px 30px rgba(0,200,255,.30);
+}
+
+.output-box{
+    margin-bottom: 16px;
+}
+
+.output-box textarea{
+    min-height: 260px;
+    resize: vertical;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.action-buttons{
+    display: flex;
+    gap: 14px;
+}
+
+.action-buttons button{
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.action-buttons button:hover{
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.back-link{
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover{
+    text-decoration: underline;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.field-full{
+    grid-column: 1 / -1;
+}
+
+.checkbox-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-item{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.checkbox-item input{
+    width: auto;
+    margin: 0;
+}
+
+.field-hint{
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: -10px;
+    margin-bottom: 14px;
+}
+
+/* SCRIPT TEXT (owner / buyer / information pages) */
+
+.card pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: inherit;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.copy-btn{
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.copy-btn:hover{
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
 /* MOBILE */
 
 @media(max-width:768px){
@@ -321,106 +661,20 @@ body{
 
 }
 
-   
+.form-grid{
+    grid-template-columns: 1fr;
 }
 
-<div class="card">
+.property-grid{
+    grid-template-columns: repeat(3, 1fr);
+}
 
-<h2>Step 3 • Choose Marketing Style</h2>
+.style-grid{
+    grid-template-columns: repeat(2, 1fr);
+}
 
-<div class="style-grid">
+.action-buttons{
+    flex-direction: column;
+}
 
-<div class="style-card active">
-💼
-<h3>Professional</h3>
-<p>Formal property listing.</p>
-</div>
-
-<div class="style-card">
-✨
-<h3>Luxury</h3>
-<p>Premium & elegant wording.</p>
-</div>
-
-<div class="style-card">
-📈
-<h3>Investment</h3>
-<p>Focus on ROI & rental.</p>
-</div>
-
-<div class="style-card">
-🔥
-<h3>Urgent Sale</h3>
-<p>Create urgency.</p>
-</div>
-
-<div class="style-card">
-😊
-<h3>Friendly</h3>
-<p>Casual & conversational.</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>Step 4 • Generate</h2>
-
-<button id="generateBtn">
-
-✨ Generate Marketing Copy
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>Generated Copywriting</h2>
-
-<div class="output-box">
-
-<textarea
-id="generatedText"
-placeholder="Your generated copywriting will appear here..."
-readonly></textarea>
-
-</div>
-
-<div class="action-buttons">
-
-<button>
-
-📋 Copy
-
-</button>
-
-<button>
-
-🔄 Generate Again
-
-</button>
-
-</div>
-
-</div>
-
-<div style="text-align:center;margin:40px 0;">
-
-<a href="index.html" class="back-link">
-
-← Back to Sales Toolkit
-
-</a>
-
-</div>
-
-</div>
-
-<script src="marketing.js"></script>
-
-</body>
-
-</html>
+}

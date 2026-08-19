@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -41,36 +40,31 @@ Create professional property copywriting in less than 30 seconds.
 
 <h2>Step 1 • Choose Property Type</h2>
 
-<div class="property-grid">
+<div class="property-grid" id="propertyGrid">
 
-<div class="property-card active">
+<div class="property-card active" data-slug="apartment" data-value="High-Rise Apartment / Condo / Serviced Residence">
 🏢
 <span>Apartment</span>
 </div>
 
-<div class="property-card">
+<div class="property-card" data-slug="landed" data-value="Landed House">
 🏠
 <span>Landed</span>
 </div>
 
-<div class="property-card">
+<div class="property-card" data-slug="shoplot" data-value="Shop Lot">
 🏬
 <span>Shoplot</span>
 </div>
 
-<div class="property-card">
+<div class="property-card" data-slug="land" data-value="Land">
 🌾
 <span>Land</span>
 </div>
 
-<div class="property-card">
+<div class="property-card" data-slug="factory" data-value="Factory / Industrial">
 🏭
 <span>Factory</span>
-</div>
-
-<div class="property-card">
-🏢
-<span>Commercial</span>
 </div>
 
 </div>
@@ -83,92 +77,564 @@ Create professional property copywriting in less than 30 seconds.
 
 <h2>Step 2 • Property Details</h2>
 
+<!-- ============ APARTMENT / CONDO ============ -->
+<div class="detail-fields" id="fields-apartment">
+
 <div class="form-grid">
 
 <div>
-
 <label>Project Name</label>
-
-<input
-type="text"
-id="project"
-placeholder="e.g. Bukit Sentosa">
-
+<input type="text" id="apt_project" placeholder="e.g. Bukit Sentosa Residence">
 </div>
 
 <div>
-
-<label>Location</label>
-
-<input
-type="text"
-id="location"
-placeholder="e.g. Rawang">
-
+<label>Location / Address</label>
+<input type="text" id="apt_location" placeholder="e.g. Rawang">
 </div>
 
 <div>
-
 <label>Price (RM)</label>
-
-<input
-type="number"
-id="price">
-
+<input type="number" id="apt_price">
 </div>
 
 <div>
+<label>Price per sqft (RM)</label>
+<input type="number" id="apt_pricepsf" placeholder="auto-calculated">
+</div>
 
+<div>
 <label>Bedrooms</label>
-
-<input
-type="number"
-id="bedroom">
-
+<input type="number" id="apt_bedroom">
 </div>
 
 <div>
-
 <label>Bathrooms</label>
-
-<input
-type="number"
-id="bathroom">
-
+<input type="number" id="apt_bathroom">
 </div>
 
 <div>
+<label>Built-up size (sqft)</label>
+<input type="number" id="apt_builtup">
+</div>
 
+<div>
+<label>Floor Level / Facing Direction</label>
+<input type="text" id="apt_floor" placeholder="e.g. Level 12, facing pool">
+</div>
+
+<div>
 <label>Car Parks</label>
-
-<input
-type="number"
-id="parking">
-
+<input type="number" id="apt_parking">
 </div>
 
 <div>
-
-<label>Built Up</label>
-
-<input
-type="text"
-id="buildup"
-placeholder="e.g. 1,400 sqft">
-
+<label>Tenure</label>
+<select id="apt_tenure">
+<option>Freehold</option>
+<option>Leasehold</option>
+</select>
 </div>
 
 <div>
+<label>Furnishing Status</label>
+<select id="apt_furnishing">
+<option>Bare</option>
+<option>Partially Furnished</option>
+<option>Fully Furnished</option>
+</select>
+</div>
 
+<div>
+<label>Maintenance Fee</label>
+<input type="text" id="apt_maintenance" placeholder="e.g. RM0.35 psf or RM250/month">
+</div>
+
+<div>
+<label>Developer Name (if new project)</label>
+<input type="text" id="apt_developer" placeholder="e.g. IOI Properties">
+</div>
+
+</div>
+
+<div style="margin-top:18px">
+<label>Facilities</label>
+<div class="checkbox-group">
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="Swimming Pool">Swimming Pool</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="Gymnasium">Gymnasium</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="24hr Security">24hr Security</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="Playground">Playground</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="Surau">Surau</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="Multipurpose Hall">Multipurpose Hall</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="BBQ Area">BBQ Area</label>
+<label class="checkbox-item"><input type="checkbox" class="apt-facility" value="Jogging Track">Jogging Track</label>
+</div>
+</div>
+
+<div class="form-grid" style="margin-top:18px">
+<div>
+<label>Nearby Amenities (schools, malls, highways, MRT/LRT)</label>
+<input type="text" id="apt_nearby" placeholder="e.g. IOI Mall, SJKC, LATAR Highway">
+</div>
+</div>
+
+<div style="margin-top:18px">
+<label>Special Features</label>
+<textarea id="apt_features" rows="3" placeholder="e.g. Renovated, corner unit, dual key"></textarea>
+</div>
+
+</div>
+
+<!-- ============ LANDED HOUSE ============ -->
+<div class="detail-fields hidden" id="fields-landed">
+
+<div class="form-grid">
+
+<div>
+<label>Project Name / Address</label>
+<input type="text" id="landed_project" placeholder="e.g. Taman Sentosa Jaya">
+</div>
+
+<div>
+<label>House Type</label>
+<select id="landed_housetype">
+<option>1-Storey Terrace</option>
+<option>2-Storey Terrace</option>
+<option>Semi-D</option>
+<option>Bungalow</option>
+<option>Cluster</option>
+<option>Townhouse</option>
+</select>
+</div>
+
+<div>
+<label>Price (RM)</label>
+<input type="number" id="landed_price">
+</div>
+
+<div>
+<label>Bedrooms</label>
+<input type="number" id="landed_bedroom">
+</div>
+
+<div>
+<label>Bathrooms</label>
+<input type="number" id="landed_bathroom">
+</div>
+
+<div>
 <label>Land Size</label>
+<input type="text" id="landed_landsize" placeholder="e.g. 22 x 75">
+</div>
 
-<input
-type="text"
-id="landsize"
-placeholder="22 x 75">
+<div>
+<label>Built-up Size (sqft)</label>
+<input type="number" id="landed_builtup">
+</div>
 
+<div>
+<label>Car Parks (porch capacity)</label>
+<input type="number" id="landed_parking">
+</div>
+
+<div>
+<label>Tenure</label>
+<select id="landed_tenure">
+<option>Freehold</option>
+<option>Leasehold</option>
+</select>
+</div>
+
+<div>
+<label>Renovation Status</label>
+<select id="landed_renovation">
+<option>Original Condition</option>
+<option>Partially Renovated</option>
+<option>Fully Renovated</option>
+<option>Extended</option>
+</select>
+</div>
+
+<div>
+<label>Facing Direction</label>
+<input type="text" id="landed_facing" placeholder="e.g. North-East">
+</div>
+
+<div>
+<label>Lot Type</label>
+<select id="landed_lottype">
+<option>Intermediate</option>
+<option>Corner Lot</option>
+<option>End Lot</option>
+</select>
+</div>
+
+<div>
+<label>Gated & Guarded</label>
+<select id="landed_gated">
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+<div>
+<label>Nearby Amenities</label>
+<input type="text" id="landed_nearby" placeholder="e.g. IOI Mall, SJKC, LATAR Highway">
+</div>
+
+</div>
+
+<div style="margin-top:18px">
+<label>Special Features</label>
+<textarea id="landed_features" rows="3" placeholder="e.g. Extended kitchen, private garden"></textarea>
+</div>
+
+</div>
+
+<!-- ============ SHOP LOT ============ -->
+<div class="detail-fields hidden" id="fields-shoplot">
+
+<div class="form-grid">
+
+<div>
+<label>Project Name / Address</label>
+<input type="text" id="shop_project" placeholder="e.g. Jalan Besar Shoplot">
+</div>
+
+<div>
+<label>Price (RM) or Rental (RM/month)</label>
+<input type="text" id="shop_price">
+</div>
+
+<div>
+<label>Number of Storeys</label>
+<select id="shop_storeys">
+<option>1-Storey</option>
+<option>2-Storey</option>
+<option>3-Storey</option>
+</select>
+</div>
+
+<div>
+<label>Built-up / Land Size</label>
+<input type="text" id="shop_size" placeholder="e.g. 20 x 70, 2,200 sqft">
+</div>
+
+<div>
+<label>Frontage Width</label>
+<input type="text" id="shop_frontage" placeholder="e.g. 20ft">
+</div>
+
+<div>
+<label>Car Parks / Parking Availability</label>
+<input type="text" id="shop_parking" placeholder="e.g. 4 open lots + roadside">
+</div>
+
+<div>
+<label>Tenure</label>
+<select id="shop_tenure">
+<option>Freehold</option>
+<option>Leasehold</option>
+</select>
+</div>
+
+<div>
+<label>Current Use / Zoning</label>
+<select id="shop_zoning">
+<option>Retail</option>
+<option>F&B</option>
+<option>Office</option>
+<option>Mixed</option>
+</select>
+</div>
+
+<div>
+<label>Tenanted Status</label>
+<select id="shop_tenanted">
+<option>Vacant</option>
+<option>Tenanted</option>
+</select>
+</div>
+
+<div>
+<label>Renovation / Condition</label>
+<select id="shop_condition">
+<option>Bare Unit</option>
+<option>Fitted</option>
+<option>Ready to Operate</option>
+</select>
+</div>
+
+<div>
+<label>Footfall / Location Type</label>
+<select id="shop_location_type">
+<option>Corner Lot</option>
+<option>Main Road Facing</option>
+<option>Inside Commercial Hub</option>
+</select>
+</div>
+
+<div>
+<label>Nearby Amenities / Anchor Tenants</label>
+<input type="text" id="shop_nearby" placeholder="e.g. Near AEON, main road">
+</div>
+
+</div>
+
+<div class="form-grid hidden" id="shop-tenanted-wrap" style="margin-top:18px">
+<div>
+<label>Monthly Rental Income (RM)</label>
+<input type="number" id="shop_rentalincome">
+</div>
+<div>
+<label>Lease Expiry</label>
+<input type="text" id="shop_leaseexpiry" placeholder="e.g. Dec 2026">
+</div>
+</div>
+
+</div>
+
+<!-- ============ LAND ============ -->
+<div class="detail-fields hidden" id="fields-land">
+
+<div class="form-grid">
+
+<div>
+<label>Location / Lot Number</label>
+<input type="text" id="land_location" placeholder="e.g. Lot 1234, Rawang">
+</div>
+
+<div>
+<label>Price (RM) or Price per sqft/acre</label>
+<input type="text" id="land_price">
+</div>
+
+<div>
+<label>Land Size</label>
+<input type="number" id="land_size">
+</div>
+
+<div>
+<label>Size Unit</label>
+<select id="land_sizeunit">
+<option>sqft</option>
+<option>acres</option>
+<option>hectares</option>
+</select>
+</div>
+
+<div>
+<label>Land Title Type</label>
+<select id="land_tenure">
+<option>Freehold</option>
+<option>Leasehold</option>
+</select>
+</div>
+
+<div id="land-lease-years-wrap" class="hidden">
+<label>Leasehold Years Remaining</label>
+<input type="number" id="land_leaseyears">
+</div>
+
+<div>
+<label>Land Category</label>
+<select id="land_category">
+<option>Residential</option>
+<option>Agricultural</option>
+<option>Industrial</option>
+<option>Commercial</option>
+</select>
+</div>
+
+<div>
+<label>Topography</label>
+<select id="land_topography">
+<option>Flat</option>
+<option>Hillside</option>
+<option>Sloped</option>
+</select>
+</div>
+
+<div>
+<label>Road Access</label>
+<select id="land_roadaccess">
+<option>Paved Road Access</option>
+<option>Requires Access Road</option>
+</select>
+</div>
+
+<div>
+<label>Zoning / Conversion Potential</label>
+<input type="text" id="land_zoning" placeholder="e.g. Can be converted to commercial">
+</div>
+
+<div>
+<label>Nearby Landmarks / Access Points</label>
+<input type="text" id="land_nearby" placeholder="e.g. 5 min to LATAR Highway">
+</div>
+
+</div>
+
+<div style="margin-top:18px">
+<label>Utilities Available</label>
+<div class="checkbox-group">
+<label class="checkbox-item"><input type="checkbox" class="land-utility" value="Electricity">Electricity</label>
+<label class="checkbox-item"><input type="checkbox" class="land-utility" value="Water">Water</label>
+<label class="checkbox-item"><input type="checkbox" class="land-utility" value="Sewerage">Sewerage</label>
+</div>
+</div>
+
+</div>
+
+<!-- ============ FACTORY / INDUSTRIAL ============ -->
+<div class="detail-fields hidden" id="fields-factory">
+
+<div class="form-grid">
+
+<div>
+<label>Project Name / Address</label>
+<input type="text" id="factory_project">
+</div>
+
+<div>
+<label>Price (RM) or Rental (RM/month)</label>
+<input type="text" id="factory_price">
+</div>
+
+<div>
+<label>Built-up / Land Size</label>
+<input type="text" id="factory_size" placeholder="e.g. 40,000 sqft built-up">
+</div>
+
+<div>
+<label>Ceiling Height</label>
+<input type="text" id="factory_ceiling" placeholder="e.g. 12m">
+</div>
+
+<div>
+<label>Floor Loading Capacity</label>
+<input type="text" id="factory_loading" placeholder="e.g. 5 tonnes/sqm">
+</div>
+
+<div>
+<label>Loading Bay / Container Access</label>
+<input type="text" id="factory_loadingbay" placeholder="e.g. 3 loading bays, container accessible">
+</div>
+
+<div>
+<label>Power Supply</label>
+<input type="text" id="factory_power" placeholder="e.g. 3-phase, 200 amp">
+</div>
+
+<div>
+<label>Office Space Included (sqft)</label>
+<input type="text" id="factory_office">
+</div>
+
+<div>
+<label>Tenure</label>
+<select id="factory_tenure">
+<option>Freehold</option>
+<option>Leasehold</option>
+</select>
+</div>
+
+<div>
+<label>Zoning</label>
+<select id="factory_zoning">
+<option>Light Industrial</option>
+<option>Medium Industrial</option>
+<option>Heavy Industrial</option>
+</select>
+</div>
+
+<div>
+<label>Water / Effluent Discharge System</label>
+<input type="text" id="factory_water" placeholder="e.g. Available, IWK connected">
+</div>
+
+<div>
+<label>Nearby Highways / Ports</label>
+<input type="text" id="factory_nearby" placeholder="e.g. 5 min to NKVE, Port Klang 30km">
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+<div class="card">
+
+<h2>Step 3 • Choose Marketing Style</h2>
+
+<div class="style-grid" id="styleGrid">
+
+<div class="style-card active" data-value="Professional">
+💼
+<h3>Professional</h3>
+<p>Formal property listing.</p>
+</div>
+
+<div class="style-card" data-value="Luxury">
+✨
+<h3>Luxury</h3>
+<p>Premium & elegant wording.</p>
+</div>
+
+<div class="style-card" data-value="Investment">
+📈
+<h3>Investment</h3>
+<p>Focus on ROI & rental.</p>
+</div>
+
+<div class="style-card" data-value="Urgent Sale">
+🔥
+<h3>Urgent Sale</h3>
+<p>Create urgency.</p>
+</div>
+
+<div class="style-card" data-value="Friendly">
+😊
+<h3>Friendly</h3>
+<p>Casual & conversational.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Step 4 • Generate</h2>
+
+<button id="generateBtn">✨ Generate Marketing Copy</button>
+
+</div>
+
+<div class="card">
+
+<h2>Generated Copywriting</h2>
+
+<div class="output-box">
+<textarea id="generatedText" placeholder="Your generated copywriting will appear here..." readonly></textarea>
+</div>
+
+<div class="action-buttons">
+<button id="copyBtn">📋 Copy</button>
+<button id="clearBtn">🔄 Clear Form</button>
+</div>
+
+</div>
+
+<div style="text-align:center;margin:40px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+<a href="index.html" class="back-link">← Back to Sales Toolkit</a>
+<a href="../index.html" class="back-link">🏠 Main Menu</a>
+</div>
+
+</div>
+
+<script src="marketing.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Information Templates | EzySales Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<div class="hero-icon">📄</div>
+<h1>Information Templates</h1>
+<p>Profiles, checklists, and document lists to keep every deal organised.</p>
+</div>
+
+<div class="card">
+<h2>1 • Buyer Profile</h2>
+<pre>Name:
+IC / Passport No.:
+Contact No.:
+Budget Range: RM
+Loan Pre-Approval: Yes / No — Bank:
+Purpose: Own Stay / Investment
+Preferred Location(s):
+Property Type: Apartment / Landed / Commercial
+Bedrooms Needed:
+Move-in Timeline:
+Notes:</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>2 • Tenant Profile</h2>
+<pre>Name:
+IC / Passport No.:
+Contact No.:
+Occupation / Company:
+Monthly Rental Budget: RM
+Number of Occupants:
+Preferred Move-in Date:
+Lease Duration Preferred:
+Pets: Yes / No
+Notes:</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>3 • Owner Listing Checklist</h2>
+<pre>☐ Confirm ownership (title / SPA copy)
+☐ Confirm asking price & flexibility
+☐ Confirm vacant possession date
+☐ Take photos / video walkthrough
+☐ Confirm outstanding loan balance (if any)
+☐ Confirm exclusive or open listing
+☐ Get owner's contact & preferred communication method
+☐ Note down unique selling points (renovation, view, facilities)
+☐ Confirm maintenance fee & sinking fund status</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>4 • Loan Submission Document Checklist</h2>
+<pre>☐ Copy of IC (front & back)
+☐ Latest 3 months payslip
+☐ Latest 3-6 months bank statement
+☐ EPF statement (latest)
+☐ Borang BE / EA form (latest year)
+☐ CCRIS / CTOS report (if self-checked)
+☐ Booking form / Letter of Offer
+☐ Employment confirmation letter (if required)
+☐ Business registration + 6 months bank statement (for self-employed)</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>5 • Viewing Checklist</h2>
+<pre>☐ Confirm appointment time with owner/tenant
+☐ Bring name card & property brochure
+☐ Bring measuring tape / compass app
+☐ Check water pressure & leakages
+☐ Check electrical points & wiring
+☐ Check parking availability
+☐ Note surrounding noise / neighbours
+☐ Take updated photos for marketing
+☐ Collect buyer/tenant feedback after viewing</pre>
+<button class="copy-btn">📋 Copy</button>
+</div>
+
+<div style="text-align:center;margin:40px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+<a href="index.html" class="back-link">← Back to Sales Toolkit</a>
+<a href="../index.html" class="back-link">🏠 Main Menu</a>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll(".copy-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        const pre = btn.previousElementSibling;
+        navigator.clipboard.writeText(pre.innerText);
+        const original = btn.textContent;
+        btn.textContent = "✅ Copied!";
+        setTimeout(()=>{ btn.textContent = original; }, 1500);
+    });
+});
+</script>
+
+</body>
+</html>
